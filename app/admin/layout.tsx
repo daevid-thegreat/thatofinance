@@ -19,10 +19,8 @@ export default async function Layout({
         );
   }
   return (
-    <html lang="en">
-      <body>
+    <div>
           {children}
-      </body>
-    </html>
+    </div>
   );
 }

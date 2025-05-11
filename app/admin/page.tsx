@@ -9,11 +9,9 @@ interface Application {
   loanAmount: number;
   status: "PENDING" | "UNDER_REVIEW" | "APPROVED" | "REJECTED" | "FUNDED" | "COMPLETED";
   createdAt: string;
-  user: {
     firstName: string;
     lastName: string;
     email: string;
-  } | null;
 }
 
 const statusOptions = ["ALL", "PENDING", "UNDER_REVIEW", "APPROVED", "REJECTED", "FUNDED", "COMPLETED"] as const;
@@ -87,8 +85,8 @@ export default function ApplicationsPage() {
               <tr key={app.id} className="hover:bg-gray-50">
                 <td className="py-2 px-4 border">{app.id.substring(0, 8)}...</td>
                 <td className="py-2 px-4 border">
-                  {app.user?.firstName} {app.user?.lastName}
-                  <div className="text-sm text-gray-500">{app.user?.email}</div>
+                  {app.firstName} {app.lastName}
+                  <div className="text-sm text-gray-500">{app.email}</div>
                 </td>
                 <td className="py-2 px-4 border">R{app.loanAmount.toFixed(2)}</td>
                 <td className="py-2 px-4 border">
@@ -106,7 +104,7 @@ export default function ApplicationsPage() {
                 </td>
                 <td className="py-2 px-4 border">{formatDate(app.createdAt)}</td>
                 <td className="py-2 px-4 border">
-                  <Link href={`/admin/applications/${app.id}`} className="text-blue-600 hover:underline">
+                  <Link href={`/admin/${app.id}`} className="text-blue-600 hover:underline">
                     View
                   </Link>
                 </td>
