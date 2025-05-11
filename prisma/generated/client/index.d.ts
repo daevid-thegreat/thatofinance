@@ -1261,13 +1261,13 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    LoanApplication: number
-    AuditLog: number
+    loanApplications: number
+    auditLogs: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    LoanApplication?: boolean | UserCountOutputTypeCountLoanApplicationArgs
-    AuditLog?: boolean | UserCountOutputTypeCountAuditLogArgs
+    loanApplications?: boolean | UserCountOutputTypeCountLoanApplicationsArgs
+    auditLogs?: boolean | UserCountOutputTypeCountAuditLogsArgs
   }
 
   // Custom InputTypes
@@ -1284,14 +1284,14 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountLoanApplicationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeCountLoanApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LoanApplicationWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountAuditLogArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeCountAuditLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AuditLogWhereInput
   }
 
@@ -1301,11 +1301,11 @@ export namespace Prisma {
    */
 
   export type LoanApplicationCountOutputType = {
-    AuditLog: number
+    auditLogs: number
   }
 
   export type LoanApplicationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    AuditLog?: boolean | LoanApplicationCountOutputTypeCountAuditLogArgs
+    auditLogs?: boolean | LoanApplicationCountOutputTypeCountAuditLogsArgs
   }
 
   // Custom InputTypes
@@ -1322,7 +1322,7 @@ export namespace Prisma {
   /**
    * LoanApplicationCountOutputType without action
    */
-  export type LoanApplicationCountOutputTypeCountAuditLogArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LoanApplicationCountOutputTypeCountAuditLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AuditLogWhereInput
   }
 
@@ -1535,8 +1535,8 @@ export namespace Prisma {
     updatedAt?: boolean
     lastLogin?: boolean
     isActive?: boolean
-    LoanApplication?: boolean | User$LoanApplicationArgs<ExtArgs>
-    AuditLog?: boolean | User$AuditLogArgs<ExtArgs>
+    loanApplications?: boolean | User$loanApplicationsArgs<ExtArgs>
+    auditLogs?: boolean | User$auditLogsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1581,8 +1581,8 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "firstName" | "lastName" | "role" | "createdAt" | "updatedAt" | "lastLogin" | "isActive", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    LoanApplication?: boolean | User$LoanApplicationArgs<ExtArgs>
-    AuditLog?: boolean | User$AuditLogArgs<ExtArgs>
+    loanApplications?: boolean | User$loanApplicationsArgs<ExtArgs>
+    auditLogs?: boolean | User$auditLogsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1591,8 +1591,8 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      LoanApplication: Prisma.$LoanApplicationPayload<ExtArgs>[]
-      AuditLog: Prisma.$AuditLogPayload<ExtArgs>[]
+      loanApplications: Prisma.$LoanApplicationPayload<ExtArgs>[]
+      auditLogs: Prisma.$AuditLogPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1999,8 +1999,8 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    LoanApplication<T extends User$LoanApplicationArgs<ExtArgs> = {}>(args?: Subset<T, User$LoanApplicationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoanApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    AuditLog<T extends User$AuditLogArgs<ExtArgs> = {}>(args?: Subset<T, User$AuditLogArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    loanApplications<T extends User$loanApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, User$loanApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoanApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    auditLogs<T extends User$auditLogsArgs<ExtArgs> = {}>(args?: Subset<T, User$auditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2428,9 +2428,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.LoanApplication
+   * User.loanApplications
    */
-  export type User$LoanApplicationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$loanApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the LoanApplication
      */
@@ -2452,9 +2452,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.AuditLog
+   * User.auditLogs
    */
-  export type User$AuditLogArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$auditLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the AuditLog
      */
@@ -2568,6 +2568,9 @@ export namespace Prisma {
     status: $Enums.ApplicationStatus | null
     notes: string | null
     rejectionReason: string | null
+    idDocumentId: string | null
+    payslipId: string | null
+    bankStatementId: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -2612,6 +2615,9 @@ export namespace Prisma {
     status: $Enums.ApplicationStatus | null
     notes: string | null
     rejectionReason: string | null
+    idDocumentId: string | null
+    payslipId: string | null
+    bankStatementId: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -2656,6 +2662,9 @@ export namespace Prisma {
     status: number
     notes: number
     rejectionReason: number
+    idDocumentId: number
+    payslipId: number
+    bankStatementId: number
     userId: number
     createdAt: number
     updatedAt: number
@@ -2728,6 +2737,9 @@ export namespace Prisma {
     status?: true
     notes?: true
     rejectionReason?: true
+    idDocumentId?: true
+    payslipId?: true
+    bankStatementId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -2772,6 +2784,9 @@ export namespace Prisma {
     status?: true
     notes?: true
     rejectionReason?: true
+    idDocumentId?: true
+    payslipId?: true
+    bankStatementId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -2816,6 +2831,9 @@ export namespace Prisma {
     status?: true
     notes?: true
     rejectionReason?: true
+    idDocumentId?: true
+    payslipId?: true
+    bankStatementId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -2947,6 +2965,9 @@ export namespace Prisma {
     status: $Enums.ApplicationStatus
     notes: string | null
     rejectionReason: string | null
+    idDocumentId: string | null
+    payslipId: string | null
+    bankStatementId: string | null
     userId: string | null
     createdAt: Date
     updatedAt: Date
@@ -3010,6 +3031,9 @@ export namespace Prisma {
     status?: boolean
     notes?: boolean
     rejectionReason?: boolean
+    idDocumentId?: boolean
+    payslipId?: boolean
+    bankStatementId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -3020,7 +3044,7 @@ export namespace Prisma {
     payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
     bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
     user?: boolean | LoanApplication$userArgs<ExtArgs>
-    AuditLog?: boolean | LoanApplication$AuditLogArgs<ExtArgs>
+    auditLogs?: boolean | LoanApplication$auditLogsArgs<ExtArgs>
     _count?: boolean | LoanApplicationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["loanApplication"]>
 
@@ -3060,12 +3084,18 @@ export namespace Prisma {
     status?: boolean
     notes?: boolean
     rejectionReason?: boolean
+    idDocumentId?: boolean
+    payslipId?: boolean
+    bankStatementId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     reviewedAt?: boolean
     approvedAt?: boolean
     fundedAt?: boolean
+    idDocument?: boolean | LoanApplication$idDocumentArgs<ExtArgs>
+    payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
+    bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
     user?: boolean | LoanApplication$userArgs<ExtArgs>
   }, ExtArgs["result"]["loanApplication"]>
 
@@ -3105,12 +3135,18 @@ export namespace Prisma {
     status?: boolean
     notes?: boolean
     rejectionReason?: boolean
+    idDocumentId?: boolean
+    payslipId?: boolean
+    bankStatementId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     reviewedAt?: boolean
     approvedAt?: boolean
     fundedAt?: boolean
+    idDocument?: boolean | LoanApplication$idDocumentArgs<ExtArgs>
+    payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
+    bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
     user?: boolean | LoanApplication$userArgs<ExtArgs>
   }, ExtArgs["result"]["loanApplication"]>
 
@@ -3150,6 +3186,9 @@ export namespace Prisma {
     status?: boolean
     notes?: boolean
     rejectionReason?: boolean
+    idDocumentId?: boolean
+    payslipId?: boolean
+    bankStatementId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -3158,19 +3197,25 @@ export namespace Prisma {
     fundedAt?: boolean
   }
 
-  export type LoanApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "loanType" | "loanAmount" | "loanTerm" | "firstName" | "lastName" | "address" | "idNumber" | "maritalStatus" | "maritalProperty" | "gender" | "cell" | "whatsapp" | "email" | "race" | "employer" | "employmentType" | "lengthOfEmployment" | "employeeNumber" | "dependants" | "salary" | "employerTelephone" | "employerEmail" | "netIncome" | "basicIncome" | "livingExpenses" | "monthlyLoanRepayments" | "totalExpenses" | "bankName" | "accountNumber" | "accountHolder" | "branchCode" | "status" | "notes" | "rejectionReason" | "userId" | "createdAt" | "updatedAt" | "reviewedAt" | "approvedAt" | "fundedAt", ExtArgs["result"]["loanApplication"]>
+  export type LoanApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "loanType" | "loanAmount" | "loanTerm" | "firstName" | "lastName" | "address" | "idNumber" | "maritalStatus" | "maritalProperty" | "gender" | "cell" | "whatsapp" | "email" | "race" | "employer" | "employmentType" | "lengthOfEmployment" | "employeeNumber" | "dependants" | "salary" | "employerTelephone" | "employerEmail" | "netIncome" | "basicIncome" | "livingExpenses" | "monthlyLoanRepayments" | "totalExpenses" | "bankName" | "accountNumber" | "accountHolder" | "branchCode" | "status" | "notes" | "rejectionReason" | "idDocumentId" | "payslipId" | "bankStatementId" | "userId" | "createdAt" | "updatedAt" | "reviewedAt" | "approvedAt" | "fundedAt", ExtArgs["result"]["loanApplication"]>
   export type LoanApplicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     idDocument?: boolean | LoanApplication$idDocumentArgs<ExtArgs>
     payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
     bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
     user?: boolean | LoanApplication$userArgs<ExtArgs>
-    AuditLog?: boolean | LoanApplication$AuditLogArgs<ExtArgs>
+    auditLogs?: boolean | LoanApplication$auditLogsArgs<ExtArgs>
     _count?: boolean | LoanApplicationCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LoanApplicationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    idDocument?: boolean | LoanApplication$idDocumentArgs<ExtArgs>
+    payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
+    bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
     user?: boolean | LoanApplication$userArgs<ExtArgs>
   }
   export type LoanApplicationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    idDocument?: boolean | LoanApplication$idDocumentArgs<ExtArgs>
+    payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
+    bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
     user?: boolean | LoanApplication$userArgs<ExtArgs>
   }
 
@@ -3181,7 +3226,7 @@ export namespace Prisma {
       payslip: Prisma.$DocumentPayload<ExtArgs> | null
       bankStatement: Prisma.$DocumentPayload<ExtArgs> | null
       user: Prisma.$UserPayload<ExtArgs> | null
-      AuditLog: Prisma.$AuditLogPayload<ExtArgs>[]
+      auditLogs: Prisma.$AuditLogPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3219,6 +3264,9 @@ export namespace Prisma {
       status: $Enums.ApplicationStatus
       notes: string | null
       rejectionReason: string | null
+      idDocumentId: string | null
+      payslipId: string | null
+      bankStatementId: string | null
       userId: string | null
       createdAt: Date
       updatedAt: Date
@@ -3623,7 +3671,7 @@ export namespace Prisma {
     payslip<T extends LoanApplication$payslipArgs<ExtArgs> = {}>(args?: Subset<T, LoanApplication$payslipArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     bankStatement<T extends LoanApplication$bankStatementArgs<ExtArgs> = {}>(args?: Subset<T, LoanApplication$bankStatementArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     user<T extends LoanApplication$userArgs<ExtArgs> = {}>(args?: Subset<T, LoanApplication$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    AuditLog<T extends LoanApplication$AuditLogArgs<ExtArgs> = {}>(args?: Subset<T, LoanApplication$AuditLogArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    auditLogs<T extends LoanApplication$auditLogsArgs<ExtArgs> = {}>(args?: Subset<T, LoanApplication$auditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3688,6 +3736,9 @@ export namespace Prisma {
     readonly status: FieldRef<"LoanApplication", 'ApplicationStatus'>
     readonly notes: FieldRef<"LoanApplication", 'String'>
     readonly rejectionReason: FieldRef<"LoanApplication", 'String'>
+    readonly idDocumentId: FieldRef<"LoanApplication", 'String'>
+    readonly payslipId: FieldRef<"LoanApplication", 'String'>
+    readonly bankStatementId: FieldRef<"LoanApplication", 'String'>
     readonly userId: FieldRef<"LoanApplication", 'String'>
     readonly createdAt: FieldRef<"LoanApplication", 'DateTime'>
     readonly updatedAt: FieldRef<"LoanApplication", 'DateTime'>
@@ -4166,9 +4217,9 @@ export namespace Prisma {
   }
 
   /**
-   * LoanApplication.AuditLog
+   * LoanApplication.auditLogs
    */
-  export type LoanApplication$AuditLogArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LoanApplication$auditLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the AuditLog
      */
@@ -4235,9 +4286,6 @@ export namespace Prisma {
     fileType: string | null
     fileSize: number | null
     blobPath: string | null
-    idDocumentApplicationId: string | null
-    payslipApplicationId: string | null
-    bankStatementApplicationId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4249,9 +4297,6 @@ export namespace Prisma {
     fileType: string | null
     fileSize: number | null
     blobPath: string | null
-    idDocumentApplicationId: string | null
-    payslipApplicationId: string | null
-    bankStatementApplicationId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4263,9 +4308,6 @@ export namespace Prisma {
     fileType: number
     fileSize: number
     blobPath: number
-    idDocumentApplicationId: number
-    payslipApplicationId: number
-    bankStatementApplicationId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -4287,9 +4329,6 @@ export namespace Prisma {
     fileType?: true
     fileSize?: true
     blobPath?: true
-    idDocumentApplicationId?: true
-    payslipApplicationId?: true
-    bankStatementApplicationId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4301,9 +4340,6 @@ export namespace Prisma {
     fileType?: true
     fileSize?: true
     blobPath?: true
-    idDocumentApplicationId?: true
-    payslipApplicationId?: true
-    bankStatementApplicationId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4315,9 +4351,6 @@ export namespace Prisma {
     fileType?: true
     fileSize?: true
     blobPath?: true
-    idDocumentApplicationId?: true
-    payslipApplicationId?: true
-    bankStatementApplicationId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -4416,9 +4449,6 @@ export namespace Prisma {
     fileType: string
     fileSize: number
     blobPath: string
-    idDocumentApplicationId: string | null
-    payslipApplicationId: string | null
-    bankStatementApplicationId: string | null
     createdAt: Date
     updatedAt: Date
     _count: DocumentCountAggregateOutputType | null
@@ -4449,9 +4479,6 @@ export namespace Prisma {
     fileType?: boolean
     fileSize?: boolean
     blobPath?: boolean
-    idDocumentApplicationId?: boolean
-    payslipApplicationId?: boolean
-    bankStatementApplicationId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     idDocumentApplication?: boolean | Document$idDocumentApplicationArgs<ExtArgs>
@@ -4466,14 +4493,8 @@ export namespace Prisma {
     fileType?: boolean
     fileSize?: boolean
     blobPath?: boolean
-    idDocumentApplicationId?: boolean
-    payslipApplicationId?: boolean
-    bankStatementApplicationId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    idDocumentApplication?: boolean | Document$idDocumentApplicationArgs<ExtArgs>
-    payslipApplication?: boolean | Document$payslipApplicationArgs<ExtArgs>
-    bankStatementApplication?: boolean | Document$bankStatementApplicationArgs<ExtArgs>
   }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4483,14 +4504,8 @@ export namespace Prisma {
     fileType?: boolean
     fileSize?: boolean
     blobPath?: boolean
-    idDocumentApplicationId?: boolean
-    payslipApplicationId?: boolean
-    bankStatementApplicationId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    idDocumentApplication?: boolean | Document$idDocumentApplicationArgs<ExtArgs>
-    payslipApplication?: boolean | Document$payslipApplicationArgs<ExtArgs>
-    bankStatementApplication?: boolean | Document$bankStatementApplicationArgs<ExtArgs>
   }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectScalar = {
@@ -4500,29 +4515,18 @@ export namespace Prisma {
     fileType?: boolean
     fileSize?: boolean
     blobPath?: boolean
-    idDocumentApplicationId?: boolean
-    payslipApplicationId?: boolean
-    bankStatementApplicationId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "fileName" | "fileType" | "fileSize" | "blobPath" | "idDocumentApplicationId" | "payslipApplicationId" | "bankStatementApplicationId" | "createdAt" | "updatedAt", ExtArgs["result"]["document"]>
+  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "fileName" | "fileType" | "fileSize" | "blobPath" | "createdAt" | "updatedAt", ExtArgs["result"]["document"]>
   export type DocumentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     idDocumentApplication?: boolean | Document$idDocumentApplicationArgs<ExtArgs>
     payslipApplication?: boolean | Document$payslipApplicationArgs<ExtArgs>
     bankStatementApplication?: boolean | Document$bankStatementApplicationArgs<ExtArgs>
   }
-  export type DocumentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    idDocumentApplication?: boolean | Document$idDocumentApplicationArgs<ExtArgs>
-    payslipApplication?: boolean | Document$payslipApplicationArgs<ExtArgs>
-    bankStatementApplication?: boolean | Document$bankStatementApplicationArgs<ExtArgs>
-  }
-  export type DocumentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    idDocumentApplication?: boolean | Document$idDocumentApplicationArgs<ExtArgs>
-    payslipApplication?: boolean | Document$payslipApplicationArgs<ExtArgs>
-    bankStatementApplication?: boolean | Document$bankStatementApplicationArgs<ExtArgs>
-  }
+  export type DocumentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type DocumentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $DocumentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Document"
@@ -4538,9 +4542,6 @@ export namespace Prisma {
       fileType: string
       fileSize: number
       blobPath: string
-      idDocumentApplicationId: string | null
-      payslipApplicationId: string | null
-      bankStatementApplicationId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["document"]>
@@ -4975,9 +4976,6 @@ export namespace Prisma {
     readonly fileType: FieldRef<"Document", 'String'>
     readonly fileSize: FieldRef<"Document", 'Int'>
     readonly blobPath: FieldRef<"Document", 'String'>
-    readonly idDocumentApplicationId: FieldRef<"Document", 'String'>
-    readonly payslipApplicationId: FieldRef<"Document", 'String'>
-    readonly bankStatementApplicationId: FieldRef<"Document", 'String'>
     readonly createdAt: FieldRef<"Document", 'DateTime'>
     readonly updatedAt: FieldRef<"Document", 'DateTime'>
   }
@@ -5229,10 +5227,6 @@ export namespace Prisma {
      */
     data: DocumentCreateManyInput | DocumentCreateManyInput[]
     skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5303,10 +5297,6 @@ export namespace Prisma {
      * Limit how many Documents to update.
      */
     limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -6637,6 +6627,9 @@ export namespace Prisma {
     status: 'status',
     notes: 'notes',
     rejectionReason: 'rejectionReason',
+    idDocumentId: 'idDocumentId',
+    payslipId: 'payslipId',
+    bankStatementId: 'bankStatementId',
     userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -6655,9 +6648,6 @@ export namespace Prisma {
     fileType: 'fileType',
     fileSize: 'fileSize',
     blobPath: 'blobPath',
-    idDocumentApplicationId: 'idDocumentApplicationId',
-    payslipApplicationId: 'payslipApplicationId',
-    bankStatementApplicationId: 'bankStatementApplicationId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -6931,8 +6921,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     lastLogin?: DateTimeNullableFilter<"User"> | Date | string | null
     isActive?: BoolFilter<"User"> | boolean
-    LoanApplication?: LoanApplicationListRelationFilter
-    AuditLog?: AuditLogListRelationFilter
+    loanApplications?: LoanApplicationListRelationFilter
+    auditLogs?: AuditLogListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -6946,8 +6936,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     lastLogin?: SortOrderInput | SortOrder
     isActive?: SortOrder
-    LoanApplication?: LoanApplicationOrderByRelationAggregateInput
-    AuditLog?: AuditLogOrderByRelationAggregateInput
+    loanApplications?: LoanApplicationOrderByRelationAggregateInput
+    auditLogs?: AuditLogOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -6964,8 +6954,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     lastLogin?: DateTimeNullableFilter<"User"> | Date | string | null
     isActive?: BoolFilter<"User"> | boolean
-    LoanApplication?: LoanApplicationListRelationFilter
-    AuditLog?: AuditLogListRelationFilter
+    loanApplications?: LoanApplicationListRelationFilter
+    auditLogs?: AuditLogListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7039,6 +7029,9 @@ export namespace Prisma {
     status?: EnumApplicationStatusFilter<"LoanApplication"> | $Enums.ApplicationStatus
     notes?: StringNullableFilter<"LoanApplication"> | string | null
     rejectionReason?: StringNullableFilter<"LoanApplication"> | string | null
+    idDocumentId?: StringNullableFilter<"LoanApplication"> | string | null
+    payslipId?: StringNullableFilter<"LoanApplication"> | string | null
+    bankStatementId?: StringNullableFilter<"LoanApplication"> | string | null
     userId?: StringNullableFilter<"LoanApplication"> | string | null
     createdAt?: DateTimeFilter<"LoanApplication"> | Date | string
     updatedAt?: DateTimeFilter<"LoanApplication"> | Date | string
@@ -7049,7 +7042,7 @@ export namespace Prisma {
     payslip?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
     bankStatement?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    AuditLog?: AuditLogListRelationFilter
+    auditLogs?: AuditLogListRelationFilter
   }
 
   export type LoanApplicationOrderByWithRelationInput = {
@@ -7088,6 +7081,9 @@ export namespace Prisma {
     status?: SortOrder
     notes?: SortOrderInput | SortOrder
     rejectionReason?: SortOrderInput | SortOrder
+    idDocumentId?: SortOrderInput | SortOrder
+    payslipId?: SortOrderInput | SortOrder
+    bankStatementId?: SortOrderInput | SortOrder
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7098,11 +7094,14 @@ export namespace Prisma {
     payslip?: DocumentOrderByWithRelationInput
     bankStatement?: DocumentOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
-    AuditLog?: AuditLogOrderByRelationAggregateInput
+    auditLogs?: AuditLogOrderByRelationAggregateInput
   }
 
   export type LoanApplicationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    idDocumentId?: string
+    payslipId?: string
+    bankStatementId?: string
     AND?: LoanApplicationWhereInput | LoanApplicationWhereInput[]
     OR?: LoanApplicationWhereInput[]
     NOT?: LoanApplicationWhereInput | LoanApplicationWhereInput[]
@@ -7150,8 +7149,8 @@ export namespace Prisma {
     payslip?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
     bankStatement?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    AuditLog?: AuditLogListRelationFilter
-  }, "id">
+    auditLogs?: AuditLogListRelationFilter
+  }, "id" | "idDocumentId" | "payslipId" | "bankStatementId">
 
   export type LoanApplicationOrderByWithAggregationInput = {
     id?: SortOrder
@@ -7189,6 +7188,9 @@ export namespace Prisma {
     status?: SortOrder
     notes?: SortOrderInput | SortOrder
     rejectionReason?: SortOrderInput | SortOrder
+    idDocumentId?: SortOrderInput | SortOrder
+    payslipId?: SortOrderInput | SortOrder
+    bankStatementId?: SortOrderInput | SortOrder
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7241,6 +7243,9 @@ export namespace Prisma {
     status?: EnumApplicationStatusWithAggregatesFilter<"LoanApplication"> | $Enums.ApplicationStatus
     notes?: StringNullableWithAggregatesFilter<"LoanApplication"> | string | null
     rejectionReason?: StringNullableWithAggregatesFilter<"LoanApplication"> | string | null
+    idDocumentId?: StringNullableWithAggregatesFilter<"LoanApplication"> | string | null
+    payslipId?: StringNullableWithAggregatesFilter<"LoanApplication"> | string | null
+    bankStatementId?: StringNullableWithAggregatesFilter<"LoanApplication"> | string | null
     userId?: StringNullableWithAggregatesFilter<"LoanApplication"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"LoanApplication"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"LoanApplication"> | Date | string
@@ -7259,9 +7264,6 @@ export namespace Prisma {
     fileType?: StringFilter<"Document"> | string
     fileSize?: IntFilter<"Document"> | number
     blobPath?: StringFilter<"Document"> | string
-    idDocumentApplicationId?: StringNullableFilter<"Document"> | string | null
-    payslipApplicationId?: StringNullableFilter<"Document"> | string | null
-    bankStatementApplicationId?: StringNullableFilter<"Document"> | string | null
     createdAt?: DateTimeFilter<"Document"> | Date | string
     updatedAt?: DateTimeFilter<"Document"> | Date | string
     idDocumentApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
@@ -7276,9 +7278,6 @@ export namespace Prisma {
     fileType?: SortOrder
     fileSize?: SortOrder
     blobPath?: SortOrder
-    idDocumentApplicationId?: SortOrderInput | SortOrder
-    payslipApplicationId?: SortOrderInput | SortOrder
-    bankStatementApplicationId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     idDocumentApplication?: LoanApplicationOrderByWithRelationInput
@@ -7290,9 +7289,6 @@ export namespace Prisma {
     id?: string
     url?: string
     blobPath?: string
-    idDocumentApplicationId?: string
-    payslipApplicationId?: string
-    bankStatementApplicationId?: string
     AND?: DocumentWhereInput | DocumentWhereInput[]
     OR?: DocumentWhereInput[]
     NOT?: DocumentWhereInput | DocumentWhereInput[]
@@ -7304,7 +7300,7 @@ export namespace Prisma {
     idDocumentApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
     payslipApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
     bankStatementApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
-  }, "id" | "url" | "blobPath" | "idDocumentApplicationId" | "payslipApplicationId" | "bankStatementApplicationId">
+  }, "id" | "url" | "blobPath">
 
   export type DocumentOrderByWithAggregationInput = {
     id?: SortOrder
@@ -7313,9 +7309,6 @@ export namespace Prisma {
     fileType?: SortOrder
     fileSize?: SortOrder
     blobPath?: SortOrder
-    idDocumentApplicationId?: SortOrderInput | SortOrder
-    payslipApplicationId?: SortOrderInput | SortOrder
-    bankStatementApplicationId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: DocumentCountOrderByAggregateInput
@@ -7335,9 +7328,6 @@ export namespace Prisma {
     fileType?: StringWithAggregatesFilter<"Document"> | string
     fileSize?: IntWithAggregatesFilter<"Document"> | number
     blobPath?: StringWithAggregatesFilter<"Document"> | string
-    idDocumentApplicationId?: StringNullableWithAggregatesFilter<"Document"> | string | null
-    payslipApplicationId?: StringNullableWithAggregatesFilter<"Document"> | string | null
-    bankStatementApplicationId?: StringNullableWithAggregatesFilter<"Document"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
   }
@@ -7426,8 +7416,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     lastLogin?: Date | string | null
     isActive?: boolean
-    LoanApplication?: LoanApplicationCreateNestedManyWithoutUserInput
-    AuditLog?: AuditLogCreateNestedManyWithoutUserInput
+    loanApplications?: LoanApplicationCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7441,8 +7431,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     lastLogin?: Date | string | null
     isActive?: boolean
-    LoanApplication?: LoanApplicationUncheckedCreateNestedManyWithoutUserInput
-    AuditLog?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    loanApplications?: LoanApplicationUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -7456,8 +7446,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
-    LoanApplication?: LoanApplicationUpdateManyWithoutUserNestedInput
-    AuditLog?: AuditLogUpdateManyWithoutUserNestedInput
+    loanApplications?: LoanApplicationUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7471,8 +7461,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
-    LoanApplication?: LoanApplicationUncheckedUpdateManyWithoutUserNestedInput
-    AuditLog?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    loanApplications?: LoanApplicationUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7558,8 +7548,8 @@ export namespace Prisma {
     idDocument?: DocumentCreateNestedOneWithoutIdDocumentApplicationInput
     payslip?: DocumentCreateNestedOneWithoutPayslipApplicationInput
     bankStatement?: DocumentCreateNestedOneWithoutBankStatementApplicationInput
-    user?: UserCreateNestedOneWithoutLoanApplicationInput
-    AuditLog?: AuditLogCreateNestedManyWithoutLoanApplicationInput
+    user?: UserCreateNestedOneWithoutLoanApplicationsInput
+    auditLogs?: AuditLogCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationUncheckedCreateInput = {
@@ -7598,16 +7588,16 @@ export namespace Prisma {
     status?: $Enums.ApplicationStatus
     notes?: string | null
     rejectionReason?: string | null
+    idDocumentId?: string | null
+    payslipId?: string | null
+    bankStatementId?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     reviewedAt?: Date | string | null
     approvedAt?: Date | string | null
     fundedAt?: Date | string | null
-    idDocument?: DocumentUncheckedCreateNestedOneWithoutIdDocumentApplicationInput
-    payslip?: DocumentUncheckedCreateNestedOneWithoutPayslipApplicationInput
-    bankStatement?: DocumentUncheckedCreateNestedOneWithoutBankStatementApplicationInput
-    AuditLog?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationUpdateInput = {
@@ -7654,8 +7644,8 @@ export namespace Prisma {
     idDocument?: DocumentUpdateOneWithoutIdDocumentApplicationNestedInput
     payslip?: DocumentUpdateOneWithoutPayslipApplicationNestedInput
     bankStatement?: DocumentUpdateOneWithoutBankStatementApplicationNestedInput
-    user?: UserUpdateOneWithoutLoanApplicationNestedInput
-    AuditLog?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
+    user?: UserUpdateOneWithoutLoanApplicationsNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationUncheckedUpdateInput = {
@@ -7694,16 +7684,16 @@ export namespace Prisma {
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    idDocumentId?: NullableStringFieldUpdateOperationsInput | string | null
+    payslipId?: NullableStringFieldUpdateOperationsInput | string | null
+    bankStatementId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reviewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    idDocument?: DocumentUncheckedUpdateOneWithoutIdDocumentApplicationNestedInput
-    payslip?: DocumentUncheckedUpdateOneWithoutPayslipApplicationNestedInput
-    bankStatement?: DocumentUncheckedUpdateOneWithoutBankStatementApplicationNestedInput
-    AuditLog?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationCreateManyInput = {
@@ -7742,6 +7732,9 @@ export namespace Prisma {
     status?: $Enums.ApplicationStatus
     notes?: string | null
     rejectionReason?: string | null
+    idDocumentId?: string | null
+    payslipId?: string | null
+    bankStatementId?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7829,6 +7822,9 @@ export namespace Prisma {
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    idDocumentId?: NullableStringFieldUpdateOperationsInput | string | null
+    payslipId?: NullableStringFieldUpdateOperationsInput | string | null
+    bankStatementId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7858,11 +7854,11 @@ export namespace Prisma {
     fileType: string
     fileSize: number
     blobPath: string
-    idDocumentApplicationId?: string | null
-    payslipApplicationId?: string | null
-    bankStatementApplicationId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    idDocumentApplication?: LoanApplicationUncheckedCreateNestedOneWithoutIdDocumentInput
+    payslipApplication?: LoanApplicationUncheckedCreateNestedOneWithoutPayslipInput
+    bankStatementApplication?: LoanApplicationUncheckedCreateNestedOneWithoutBankStatementInput
   }
 
   export type DocumentUpdateInput = {
@@ -7886,11 +7882,11 @@ export namespace Prisma {
     fileType?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
     blobPath?: StringFieldUpdateOperationsInput | string
-    idDocumentApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
-    payslipApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
-    bankStatementApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    idDocumentApplication?: LoanApplicationUncheckedUpdateOneWithoutIdDocumentNestedInput
+    payslipApplication?: LoanApplicationUncheckedUpdateOneWithoutPayslipNestedInput
+    bankStatementApplication?: LoanApplicationUncheckedUpdateOneWithoutBankStatementNestedInput
   }
 
   export type DocumentCreateManyInput = {
@@ -7900,9 +7896,6 @@ export namespace Prisma {
     fileType: string
     fileSize: number
     blobPath: string
-    idDocumentApplicationId?: string | null
-    payslipApplicationId?: string | null
-    bankStatementApplicationId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7925,9 +7918,6 @@ export namespace Prisma {
     fileType?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
     blobPath?: StringFieldUpdateOperationsInput | string
-    idDocumentApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
-    payslipApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
-    bankStatementApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7939,8 +7929,8 @@ export namespace Prisma {
     entityId: string
     details?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
-    user: UserCreateNestedOneWithoutAuditLogInput
-    loanApplication?: LoanApplicationCreateNestedOneWithoutAuditLogInput
+    user: UserCreateNestedOneWithoutAuditLogsInput
+    loanApplication?: LoanApplicationCreateNestedOneWithoutAuditLogsInput
   }
 
   export type AuditLogUncheckedCreateInput = {
@@ -7961,8 +7951,8 @@ export namespace Prisma {
     entityId?: StringFieldUpdateOperationsInput | string
     details?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutAuditLogNestedInput
-    loanApplication?: LoanApplicationUpdateOneWithoutAuditLogNestedInput
+    user?: UserUpdateOneRequiredWithoutAuditLogsNestedInput
+    loanApplication?: LoanApplicationUpdateOneWithoutAuditLogsNestedInput
   }
 
   export type AuditLogUncheckedUpdateInput = {
@@ -8316,6 +8306,9 @@ export namespace Prisma {
     status?: SortOrder
     notes?: SortOrder
     rejectionReason?: SortOrder
+    idDocumentId?: SortOrder
+    payslipId?: SortOrder
+    bankStatementId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -8373,6 +8366,9 @@ export namespace Prisma {
     status?: SortOrder
     notes?: SortOrder
     rejectionReason?: SortOrder
+    idDocumentId?: SortOrder
+    payslipId?: SortOrder
+    bankStatementId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -8417,6 +8413,9 @@ export namespace Prisma {
     status?: SortOrder
     notes?: SortOrder
     rejectionReason?: SortOrder
+    idDocumentId?: SortOrder
+    payslipId?: SortOrder
+    bankStatementId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -8570,9 +8569,6 @@ export namespace Prisma {
     fileType?: SortOrder
     fileSize?: SortOrder
     blobPath?: SortOrder
-    idDocumentApplicationId?: SortOrder
-    payslipApplicationId?: SortOrder
-    bankStatementApplicationId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8588,9 +8584,6 @@ export namespace Prisma {
     fileType?: SortOrder
     fileSize?: SortOrder
     blobPath?: SortOrder
-    idDocumentApplicationId?: SortOrder
-    payslipApplicationId?: SortOrder
-    bankStatementApplicationId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8602,9 +8595,6 @@ export namespace Prisma {
     fileType?: SortOrder
     fileSize?: SortOrder
     blobPath?: SortOrder
-    idDocumentApplicationId?: SortOrder
-    payslipApplicationId?: SortOrder
-    bankStatementApplicationId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8820,9 +8810,9 @@ export namespace Prisma {
     connect?: DocumentWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutLoanApplicationInput = {
-    create?: XOR<UserCreateWithoutLoanApplicationInput, UserUncheckedCreateWithoutLoanApplicationInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLoanApplicationInput
+  export type UserCreateNestedOneWithoutLoanApplicationsInput = {
+    create?: XOR<UserCreateWithoutLoanApplicationsInput, UserUncheckedCreateWithoutLoanApplicationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLoanApplicationsInput
     connect?: UserWhereUniqueInput
   }
 
@@ -8831,24 +8821,6 @@ export namespace Prisma {
     connectOrCreate?: AuditLogCreateOrConnectWithoutLoanApplicationInput | AuditLogCreateOrConnectWithoutLoanApplicationInput[]
     createMany?: AuditLogCreateManyLoanApplicationInputEnvelope
     connect?: AuditLogWhereUniqueInput | AuditLogWhereUniqueInput[]
-  }
-
-  export type DocumentUncheckedCreateNestedOneWithoutIdDocumentApplicationInput = {
-    create?: XOR<DocumentCreateWithoutIdDocumentApplicationInput, DocumentUncheckedCreateWithoutIdDocumentApplicationInput>
-    connectOrCreate?: DocumentCreateOrConnectWithoutIdDocumentApplicationInput
-    connect?: DocumentWhereUniqueInput
-  }
-
-  export type DocumentUncheckedCreateNestedOneWithoutPayslipApplicationInput = {
-    create?: XOR<DocumentCreateWithoutPayslipApplicationInput, DocumentUncheckedCreateWithoutPayslipApplicationInput>
-    connectOrCreate?: DocumentCreateOrConnectWithoutPayslipApplicationInput
-    connect?: DocumentWhereUniqueInput
-  }
-
-  export type DocumentUncheckedCreateNestedOneWithoutBankStatementApplicationInput = {
-    create?: XOR<DocumentCreateWithoutBankStatementApplicationInput, DocumentUncheckedCreateWithoutBankStatementApplicationInput>
-    connectOrCreate?: DocumentCreateOrConnectWithoutBankStatementApplicationInput
-    connect?: DocumentWhereUniqueInput
   }
 
   export type AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput = {
@@ -8936,14 +8908,14 @@ export namespace Prisma {
     update?: XOR<XOR<DocumentUpdateToOneWithWhereWithoutBankStatementApplicationInput, DocumentUpdateWithoutBankStatementApplicationInput>, DocumentUncheckedUpdateWithoutBankStatementApplicationInput>
   }
 
-  export type UserUpdateOneWithoutLoanApplicationNestedInput = {
-    create?: XOR<UserCreateWithoutLoanApplicationInput, UserUncheckedCreateWithoutLoanApplicationInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLoanApplicationInput
-    upsert?: UserUpsertWithoutLoanApplicationInput
+  export type UserUpdateOneWithoutLoanApplicationsNestedInput = {
+    create?: XOR<UserCreateWithoutLoanApplicationsInput, UserUncheckedCreateWithoutLoanApplicationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLoanApplicationsInput
+    upsert?: UserUpsertWithoutLoanApplicationsInput
     disconnect?: UserWhereInput | boolean
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLoanApplicationInput, UserUpdateWithoutLoanApplicationInput>, UserUncheckedUpdateWithoutLoanApplicationInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLoanApplicationsInput, UserUpdateWithoutLoanApplicationsInput>, UserUncheckedUpdateWithoutLoanApplicationsInput>
   }
 
   export type AuditLogUpdateManyWithoutLoanApplicationNestedInput = {
@@ -8958,36 +8930,6 @@ export namespace Prisma {
     update?: AuditLogUpdateWithWhereUniqueWithoutLoanApplicationInput | AuditLogUpdateWithWhereUniqueWithoutLoanApplicationInput[]
     updateMany?: AuditLogUpdateManyWithWhereWithoutLoanApplicationInput | AuditLogUpdateManyWithWhereWithoutLoanApplicationInput[]
     deleteMany?: AuditLogScalarWhereInput | AuditLogScalarWhereInput[]
-  }
-
-  export type DocumentUncheckedUpdateOneWithoutIdDocumentApplicationNestedInput = {
-    create?: XOR<DocumentCreateWithoutIdDocumentApplicationInput, DocumentUncheckedCreateWithoutIdDocumentApplicationInput>
-    connectOrCreate?: DocumentCreateOrConnectWithoutIdDocumentApplicationInput
-    upsert?: DocumentUpsertWithoutIdDocumentApplicationInput
-    disconnect?: DocumentWhereInput | boolean
-    delete?: DocumentWhereInput | boolean
-    connect?: DocumentWhereUniqueInput
-    update?: XOR<XOR<DocumentUpdateToOneWithWhereWithoutIdDocumentApplicationInput, DocumentUpdateWithoutIdDocumentApplicationInput>, DocumentUncheckedUpdateWithoutIdDocumentApplicationInput>
-  }
-
-  export type DocumentUncheckedUpdateOneWithoutPayslipApplicationNestedInput = {
-    create?: XOR<DocumentCreateWithoutPayslipApplicationInput, DocumentUncheckedCreateWithoutPayslipApplicationInput>
-    connectOrCreate?: DocumentCreateOrConnectWithoutPayslipApplicationInput
-    upsert?: DocumentUpsertWithoutPayslipApplicationInput
-    disconnect?: DocumentWhereInput | boolean
-    delete?: DocumentWhereInput | boolean
-    connect?: DocumentWhereUniqueInput
-    update?: XOR<XOR<DocumentUpdateToOneWithWhereWithoutPayslipApplicationInput, DocumentUpdateWithoutPayslipApplicationInput>, DocumentUncheckedUpdateWithoutPayslipApplicationInput>
-  }
-
-  export type DocumentUncheckedUpdateOneWithoutBankStatementApplicationNestedInput = {
-    create?: XOR<DocumentCreateWithoutBankStatementApplicationInput, DocumentUncheckedCreateWithoutBankStatementApplicationInput>
-    connectOrCreate?: DocumentCreateOrConnectWithoutBankStatementApplicationInput
-    upsert?: DocumentUpsertWithoutBankStatementApplicationInput
-    disconnect?: DocumentWhereInput | boolean
-    delete?: DocumentWhereInput | boolean
-    connect?: DocumentWhereUniqueInput
-    update?: XOR<XOR<DocumentUpdateToOneWithWhereWithoutBankStatementApplicationInput, DocumentUpdateWithoutBankStatementApplicationInput>, DocumentUncheckedUpdateWithoutBankStatementApplicationInput>
   }
 
   export type AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput = {
@@ -9017,6 +8959,24 @@ export namespace Prisma {
   }
 
   export type LoanApplicationCreateNestedOneWithoutBankStatementInput = {
+    create?: XOR<LoanApplicationCreateWithoutBankStatementInput, LoanApplicationUncheckedCreateWithoutBankStatementInput>
+    connectOrCreate?: LoanApplicationCreateOrConnectWithoutBankStatementInput
+    connect?: LoanApplicationWhereUniqueInput
+  }
+
+  export type LoanApplicationUncheckedCreateNestedOneWithoutIdDocumentInput = {
+    create?: XOR<LoanApplicationCreateWithoutIdDocumentInput, LoanApplicationUncheckedCreateWithoutIdDocumentInput>
+    connectOrCreate?: LoanApplicationCreateOrConnectWithoutIdDocumentInput
+    connect?: LoanApplicationWhereUniqueInput
+  }
+
+  export type LoanApplicationUncheckedCreateNestedOneWithoutPayslipInput = {
+    create?: XOR<LoanApplicationCreateWithoutPayslipInput, LoanApplicationUncheckedCreateWithoutPayslipInput>
+    connectOrCreate?: LoanApplicationCreateOrConnectWithoutPayslipInput
+    connect?: LoanApplicationWhereUniqueInput
+  }
+
+  export type LoanApplicationUncheckedCreateNestedOneWithoutBankStatementInput = {
     create?: XOR<LoanApplicationCreateWithoutBankStatementInput, LoanApplicationUncheckedCreateWithoutBankStatementInput>
     connectOrCreate?: LoanApplicationCreateOrConnectWithoutBankStatementInput
     connect?: LoanApplicationWhereUniqueInput
@@ -9052,34 +9012,64 @@ export namespace Prisma {
     update?: XOR<XOR<LoanApplicationUpdateToOneWithWhereWithoutBankStatementInput, LoanApplicationUpdateWithoutBankStatementInput>, LoanApplicationUncheckedUpdateWithoutBankStatementInput>
   }
 
-  export type UserCreateNestedOneWithoutAuditLogInput = {
-    create?: XOR<UserCreateWithoutAuditLogInput, UserUncheckedCreateWithoutAuditLogInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAuditLogInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type LoanApplicationCreateNestedOneWithoutAuditLogInput = {
-    create?: XOR<LoanApplicationCreateWithoutAuditLogInput, LoanApplicationUncheckedCreateWithoutAuditLogInput>
-    connectOrCreate?: LoanApplicationCreateOrConnectWithoutAuditLogInput
-    connect?: LoanApplicationWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutAuditLogNestedInput = {
-    create?: XOR<UserCreateWithoutAuditLogInput, UserUncheckedCreateWithoutAuditLogInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAuditLogInput
-    upsert?: UserUpsertWithoutAuditLogInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAuditLogInput, UserUpdateWithoutAuditLogInput>, UserUncheckedUpdateWithoutAuditLogInput>
-  }
-
-  export type LoanApplicationUpdateOneWithoutAuditLogNestedInput = {
-    create?: XOR<LoanApplicationCreateWithoutAuditLogInput, LoanApplicationUncheckedCreateWithoutAuditLogInput>
-    connectOrCreate?: LoanApplicationCreateOrConnectWithoutAuditLogInput
-    upsert?: LoanApplicationUpsertWithoutAuditLogInput
+  export type LoanApplicationUncheckedUpdateOneWithoutIdDocumentNestedInput = {
+    create?: XOR<LoanApplicationCreateWithoutIdDocumentInput, LoanApplicationUncheckedCreateWithoutIdDocumentInput>
+    connectOrCreate?: LoanApplicationCreateOrConnectWithoutIdDocumentInput
+    upsert?: LoanApplicationUpsertWithoutIdDocumentInput
     disconnect?: LoanApplicationWhereInput | boolean
     delete?: LoanApplicationWhereInput | boolean
     connect?: LoanApplicationWhereUniqueInput
-    update?: XOR<XOR<LoanApplicationUpdateToOneWithWhereWithoutAuditLogInput, LoanApplicationUpdateWithoutAuditLogInput>, LoanApplicationUncheckedUpdateWithoutAuditLogInput>
+    update?: XOR<XOR<LoanApplicationUpdateToOneWithWhereWithoutIdDocumentInput, LoanApplicationUpdateWithoutIdDocumentInput>, LoanApplicationUncheckedUpdateWithoutIdDocumentInput>
+  }
+
+  export type LoanApplicationUncheckedUpdateOneWithoutPayslipNestedInput = {
+    create?: XOR<LoanApplicationCreateWithoutPayslipInput, LoanApplicationUncheckedCreateWithoutPayslipInput>
+    connectOrCreate?: LoanApplicationCreateOrConnectWithoutPayslipInput
+    upsert?: LoanApplicationUpsertWithoutPayslipInput
+    disconnect?: LoanApplicationWhereInput | boolean
+    delete?: LoanApplicationWhereInput | boolean
+    connect?: LoanApplicationWhereUniqueInput
+    update?: XOR<XOR<LoanApplicationUpdateToOneWithWhereWithoutPayslipInput, LoanApplicationUpdateWithoutPayslipInput>, LoanApplicationUncheckedUpdateWithoutPayslipInput>
+  }
+
+  export type LoanApplicationUncheckedUpdateOneWithoutBankStatementNestedInput = {
+    create?: XOR<LoanApplicationCreateWithoutBankStatementInput, LoanApplicationUncheckedCreateWithoutBankStatementInput>
+    connectOrCreate?: LoanApplicationCreateOrConnectWithoutBankStatementInput
+    upsert?: LoanApplicationUpsertWithoutBankStatementInput
+    disconnect?: LoanApplicationWhereInput | boolean
+    delete?: LoanApplicationWhereInput | boolean
+    connect?: LoanApplicationWhereUniqueInput
+    update?: XOR<XOR<LoanApplicationUpdateToOneWithWhereWithoutBankStatementInput, LoanApplicationUpdateWithoutBankStatementInput>, LoanApplicationUncheckedUpdateWithoutBankStatementInput>
+  }
+
+  export type UserCreateNestedOneWithoutAuditLogsInput = {
+    create?: XOR<UserCreateWithoutAuditLogsInput, UserUncheckedCreateWithoutAuditLogsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAuditLogsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type LoanApplicationCreateNestedOneWithoutAuditLogsInput = {
+    create?: XOR<LoanApplicationCreateWithoutAuditLogsInput, LoanApplicationUncheckedCreateWithoutAuditLogsInput>
+    connectOrCreate?: LoanApplicationCreateOrConnectWithoutAuditLogsInput
+    connect?: LoanApplicationWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutAuditLogsNestedInput = {
+    create?: XOR<UserCreateWithoutAuditLogsInput, UserUncheckedCreateWithoutAuditLogsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAuditLogsInput
+    upsert?: UserUpsertWithoutAuditLogsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAuditLogsInput, UserUpdateWithoutAuditLogsInput>, UserUncheckedUpdateWithoutAuditLogsInput>
+  }
+
+  export type LoanApplicationUpdateOneWithoutAuditLogsNestedInput = {
+    create?: XOR<LoanApplicationCreateWithoutAuditLogsInput, LoanApplicationUncheckedCreateWithoutAuditLogsInput>
+    connectOrCreate?: LoanApplicationCreateOrConnectWithoutAuditLogsInput
+    upsert?: LoanApplicationUpsertWithoutAuditLogsInput
+    disconnect?: LoanApplicationWhereInput | boolean
+    delete?: LoanApplicationWhereInput | boolean
+    connect?: LoanApplicationWhereUniqueInput
+    update?: XOR<XOR<LoanApplicationUpdateToOneWithWhereWithoutAuditLogsInput, LoanApplicationUpdateWithoutAuditLogsInput>, LoanApplicationUncheckedUpdateWithoutAuditLogsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -9475,7 +9465,7 @@ export namespace Prisma {
     idDocument?: DocumentCreateNestedOneWithoutIdDocumentApplicationInput
     payslip?: DocumentCreateNestedOneWithoutPayslipApplicationInput
     bankStatement?: DocumentCreateNestedOneWithoutBankStatementApplicationInput
-    AuditLog?: AuditLogCreateNestedManyWithoutLoanApplicationInput
+    auditLogs?: AuditLogCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationUncheckedCreateWithoutUserInput = {
@@ -9514,15 +9504,15 @@ export namespace Prisma {
     status?: $Enums.ApplicationStatus
     notes?: string | null
     rejectionReason?: string | null
+    idDocumentId?: string | null
+    payslipId?: string | null
+    bankStatementId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     reviewedAt?: Date | string | null
     approvedAt?: Date | string | null
     fundedAt?: Date | string | null
-    idDocument?: DocumentUncheckedCreateNestedOneWithoutIdDocumentApplicationInput
-    payslip?: DocumentUncheckedCreateNestedOneWithoutPayslipApplicationInput
-    bankStatement?: DocumentUncheckedCreateNestedOneWithoutBankStatementApplicationInput
-    AuditLog?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationCreateOrConnectWithoutUserInput = {
@@ -9542,7 +9532,7 @@ export namespace Prisma {
     entityId: string
     details?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
-    loanApplication?: LoanApplicationCreateNestedOneWithoutAuditLogInput
+    loanApplication?: LoanApplicationCreateNestedOneWithoutAuditLogsInput
   }
 
   export type AuditLogUncheckedCreateWithoutUserInput = {
@@ -9620,6 +9610,9 @@ export namespace Prisma {
     status?: EnumApplicationStatusFilter<"LoanApplication"> | $Enums.ApplicationStatus
     notes?: StringNullableFilter<"LoanApplication"> | string | null
     rejectionReason?: StringNullableFilter<"LoanApplication"> | string | null
+    idDocumentId?: StringNullableFilter<"LoanApplication"> | string | null
+    payslipId?: StringNullableFilter<"LoanApplication"> | string | null
+    bankStatementId?: StringNullableFilter<"LoanApplication"> | string | null
     userId?: StringNullableFilter<"LoanApplication"> | string | null
     createdAt?: DateTimeFilter<"LoanApplication"> | Date | string
     updatedAt?: DateTimeFilter<"LoanApplication"> | Date | string
@@ -9678,10 +9671,10 @@ export namespace Prisma {
     fileType: string
     fileSize: number
     blobPath: string
-    payslipApplicationId?: string | null
-    bankStatementApplicationId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    payslipApplication?: LoanApplicationUncheckedCreateNestedOneWithoutPayslipInput
+    bankStatementApplication?: LoanApplicationUncheckedCreateNestedOneWithoutBankStatementInput
   }
 
   export type DocumentCreateOrConnectWithoutIdDocumentApplicationInput = {
@@ -9709,10 +9702,10 @@ export namespace Prisma {
     fileType: string
     fileSize: number
     blobPath: string
-    idDocumentApplicationId?: string | null
-    bankStatementApplicationId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    idDocumentApplication?: LoanApplicationUncheckedCreateNestedOneWithoutIdDocumentInput
+    bankStatementApplication?: LoanApplicationUncheckedCreateNestedOneWithoutBankStatementInput
   }
 
   export type DocumentCreateOrConnectWithoutPayslipApplicationInput = {
@@ -9740,10 +9733,10 @@ export namespace Prisma {
     fileType: string
     fileSize: number
     blobPath: string
-    idDocumentApplicationId?: string | null
-    payslipApplicationId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    idDocumentApplication?: LoanApplicationUncheckedCreateNestedOneWithoutIdDocumentInput
+    payslipApplication?: LoanApplicationUncheckedCreateNestedOneWithoutPayslipInput
   }
 
   export type DocumentCreateOrConnectWithoutBankStatementApplicationInput = {
@@ -9751,7 +9744,7 @@ export namespace Prisma {
     create: XOR<DocumentCreateWithoutBankStatementApplicationInput, DocumentUncheckedCreateWithoutBankStatementApplicationInput>
   }
 
-  export type UserCreateWithoutLoanApplicationInput = {
+  export type UserCreateWithoutLoanApplicationsInput = {
     id?: string
     email: string
     password: string
@@ -9762,10 +9755,10 @@ export namespace Prisma {
     updatedAt?: Date | string
     lastLogin?: Date | string | null
     isActive?: boolean
-    AuditLog?: AuditLogCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutLoanApplicationInput = {
+  export type UserUncheckedCreateWithoutLoanApplicationsInput = {
     id?: string
     email: string
     password: string
@@ -9776,12 +9769,12 @@ export namespace Prisma {
     updatedAt?: Date | string
     lastLogin?: Date | string | null
     isActive?: boolean
-    AuditLog?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutLoanApplicationInput = {
+  export type UserCreateOrConnectWithoutLoanApplicationsInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLoanApplicationInput, UserUncheckedCreateWithoutLoanApplicationInput>
+    create: XOR<UserCreateWithoutLoanApplicationsInput, UserUncheckedCreateWithoutLoanApplicationsInput>
   }
 
   export type AuditLogCreateWithoutLoanApplicationInput = {
@@ -9791,7 +9784,7 @@ export namespace Prisma {
     entityId: string
     details?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
-    user: UserCreateNestedOneWithoutAuditLogInput
+    user: UserCreateNestedOneWithoutAuditLogsInput
   }
 
   export type AuditLogUncheckedCreateWithoutLoanApplicationInput = {
@@ -9845,10 +9838,10 @@ export namespace Prisma {
     fileType?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
     blobPath?: StringFieldUpdateOperationsInput | string
-    payslipApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
-    bankStatementApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    payslipApplication?: LoanApplicationUncheckedUpdateOneWithoutPayslipNestedInput
+    bankStatementApplication?: LoanApplicationUncheckedUpdateOneWithoutBankStatementNestedInput
   }
 
   export type DocumentUpsertWithoutPayslipApplicationInput = {
@@ -9882,10 +9875,10 @@ export namespace Prisma {
     fileType?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
     blobPath?: StringFieldUpdateOperationsInput | string
-    idDocumentApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
-    bankStatementApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    idDocumentApplication?: LoanApplicationUncheckedUpdateOneWithoutIdDocumentNestedInput
+    bankStatementApplication?: LoanApplicationUncheckedUpdateOneWithoutBankStatementNestedInput
   }
 
   export type DocumentUpsertWithoutBankStatementApplicationInput = {
@@ -9919,24 +9912,24 @@ export namespace Prisma {
     fileType?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
     blobPath?: StringFieldUpdateOperationsInput | string
-    idDocumentApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
-    payslipApplicationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    idDocumentApplication?: LoanApplicationUncheckedUpdateOneWithoutIdDocumentNestedInput
+    payslipApplication?: LoanApplicationUncheckedUpdateOneWithoutPayslipNestedInput
   }
 
-  export type UserUpsertWithoutLoanApplicationInput = {
-    update: XOR<UserUpdateWithoutLoanApplicationInput, UserUncheckedUpdateWithoutLoanApplicationInput>
-    create: XOR<UserCreateWithoutLoanApplicationInput, UserUncheckedCreateWithoutLoanApplicationInput>
+  export type UserUpsertWithoutLoanApplicationsInput = {
+    update: XOR<UserUpdateWithoutLoanApplicationsInput, UserUncheckedUpdateWithoutLoanApplicationsInput>
+    create: XOR<UserCreateWithoutLoanApplicationsInput, UserUncheckedCreateWithoutLoanApplicationsInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutLoanApplicationInput = {
+  export type UserUpdateToOneWithWhereWithoutLoanApplicationsInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutLoanApplicationInput, UserUncheckedUpdateWithoutLoanApplicationInput>
+    data: XOR<UserUpdateWithoutLoanApplicationsInput, UserUncheckedUpdateWithoutLoanApplicationsInput>
   }
 
-  export type UserUpdateWithoutLoanApplicationInput = {
+  export type UserUpdateWithoutLoanApplicationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -9947,10 +9940,10 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
-    AuditLog?: AuditLogUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutLoanApplicationInput = {
+  export type UserUncheckedUpdateWithoutLoanApplicationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -9961,7 +9954,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
-    AuditLog?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type AuditLogUpsertWithWhereUniqueWithoutLoanApplicationInput = {
@@ -10023,8 +10016,8 @@ export namespace Prisma {
     fundedAt?: Date | string | null
     payslip?: DocumentCreateNestedOneWithoutPayslipApplicationInput
     bankStatement?: DocumentCreateNestedOneWithoutBankStatementApplicationInput
-    user?: UserCreateNestedOneWithoutLoanApplicationInput
-    AuditLog?: AuditLogCreateNestedManyWithoutLoanApplicationInput
+    user?: UserCreateNestedOneWithoutLoanApplicationsInput
+    auditLogs?: AuditLogCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationUncheckedCreateWithoutIdDocumentInput = {
@@ -10063,15 +10056,15 @@ export namespace Prisma {
     status?: $Enums.ApplicationStatus
     notes?: string | null
     rejectionReason?: string | null
+    payslipId?: string | null
+    bankStatementId?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     reviewedAt?: Date | string | null
     approvedAt?: Date | string | null
     fundedAt?: Date | string | null
-    payslip?: DocumentUncheckedCreateNestedOneWithoutPayslipApplicationInput
-    bankStatement?: DocumentUncheckedCreateNestedOneWithoutBankStatementApplicationInput
-    AuditLog?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationCreateOrConnectWithoutIdDocumentInput = {
@@ -10122,8 +10115,8 @@ export namespace Prisma {
     fundedAt?: Date | string | null
     idDocument?: DocumentCreateNestedOneWithoutIdDocumentApplicationInput
     bankStatement?: DocumentCreateNestedOneWithoutBankStatementApplicationInput
-    user?: UserCreateNestedOneWithoutLoanApplicationInput
-    AuditLog?: AuditLogCreateNestedManyWithoutLoanApplicationInput
+    user?: UserCreateNestedOneWithoutLoanApplicationsInput
+    auditLogs?: AuditLogCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationUncheckedCreateWithoutPayslipInput = {
@@ -10162,15 +10155,15 @@ export namespace Prisma {
     status?: $Enums.ApplicationStatus
     notes?: string | null
     rejectionReason?: string | null
+    idDocumentId?: string | null
+    bankStatementId?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     reviewedAt?: Date | string | null
     approvedAt?: Date | string | null
     fundedAt?: Date | string | null
-    idDocument?: DocumentUncheckedCreateNestedOneWithoutIdDocumentApplicationInput
-    bankStatement?: DocumentUncheckedCreateNestedOneWithoutBankStatementApplicationInput
-    AuditLog?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationCreateOrConnectWithoutPayslipInput = {
@@ -10221,8 +10214,8 @@ export namespace Prisma {
     fundedAt?: Date | string | null
     idDocument?: DocumentCreateNestedOneWithoutIdDocumentApplicationInput
     payslip?: DocumentCreateNestedOneWithoutPayslipApplicationInput
-    user?: UserCreateNestedOneWithoutLoanApplicationInput
-    AuditLog?: AuditLogCreateNestedManyWithoutLoanApplicationInput
+    user?: UserCreateNestedOneWithoutLoanApplicationsInput
+    auditLogs?: AuditLogCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationUncheckedCreateWithoutBankStatementInput = {
@@ -10261,15 +10254,15 @@ export namespace Prisma {
     status?: $Enums.ApplicationStatus
     notes?: string | null
     rejectionReason?: string | null
+    idDocumentId?: string | null
+    payslipId?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     reviewedAt?: Date | string | null
     approvedAt?: Date | string | null
     fundedAt?: Date | string | null
-    idDocument?: DocumentUncheckedCreateNestedOneWithoutIdDocumentApplicationInput
-    payslip?: DocumentUncheckedCreateNestedOneWithoutPayslipApplicationInput
-    AuditLog?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutLoanApplicationInput
   }
 
   export type LoanApplicationCreateOrConnectWithoutBankStatementInput = {
@@ -10331,8 +10324,8 @@ export namespace Prisma {
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     payslip?: DocumentUpdateOneWithoutPayslipApplicationNestedInput
     bankStatement?: DocumentUpdateOneWithoutBankStatementApplicationNestedInput
-    user?: UserUpdateOneWithoutLoanApplicationNestedInput
-    AuditLog?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
+    user?: UserUpdateOneWithoutLoanApplicationsNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationUncheckedUpdateWithoutIdDocumentInput = {
@@ -10371,15 +10364,15 @@ export namespace Prisma {
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    payslipId?: NullableStringFieldUpdateOperationsInput | string | null
+    bankStatementId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reviewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    payslip?: DocumentUncheckedUpdateOneWithoutPayslipApplicationNestedInput
-    bankStatement?: DocumentUncheckedUpdateOneWithoutBankStatementApplicationNestedInput
-    AuditLog?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationUpsertWithoutPayslipInput = {
@@ -10436,8 +10429,8 @@ export namespace Prisma {
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     idDocument?: DocumentUpdateOneWithoutIdDocumentApplicationNestedInput
     bankStatement?: DocumentUpdateOneWithoutBankStatementApplicationNestedInput
-    user?: UserUpdateOneWithoutLoanApplicationNestedInput
-    AuditLog?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
+    user?: UserUpdateOneWithoutLoanApplicationsNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationUncheckedUpdateWithoutPayslipInput = {
@@ -10476,15 +10469,15 @@ export namespace Prisma {
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    idDocumentId?: NullableStringFieldUpdateOperationsInput | string | null
+    bankStatementId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reviewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    idDocument?: DocumentUncheckedUpdateOneWithoutIdDocumentApplicationNestedInput
-    bankStatement?: DocumentUncheckedUpdateOneWithoutBankStatementApplicationNestedInput
-    AuditLog?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationUpsertWithoutBankStatementInput = {
@@ -10541,8 +10534,8 @@ export namespace Prisma {
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     idDocument?: DocumentUpdateOneWithoutIdDocumentApplicationNestedInput
     payslip?: DocumentUpdateOneWithoutPayslipApplicationNestedInput
-    user?: UserUpdateOneWithoutLoanApplicationNestedInput
-    AuditLog?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
+    user?: UserUpdateOneWithoutLoanApplicationsNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationUncheckedUpdateWithoutBankStatementInput = {
@@ -10581,18 +10574,18 @@ export namespace Prisma {
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    idDocumentId?: NullableStringFieldUpdateOperationsInput | string | null
+    payslipId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reviewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    idDocument?: DocumentUncheckedUpdateOneWithoutIdDocumentApplicationNestedInput
-    payslip?: DocumentUncheckedUpdateOneWithoutPayslipApplicationNestedInput
-    AuditLog?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
   }
 
-  export type UserCreateWithoutAuditLogInput = {
+  export type UserCreateWithoutAuditLogsInput = {
     id?: string
     email: string
     password: string
@@ -10603,10 +10596,10 @@ export namespace Prisma {
     updatedAt?: Date | string
     lastLogin?: Date | string | null
     isActive?: boolean
-    LoanApplication?: LoanApplicationCreateNestedManyWithoutUserInput
+    loanApplications?: LoanApplicationCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutAuditLogInput = {
+  export type UserUncheckedCreateWithoutAuditLogsInput = {
     id?: string
     email: string
     password: string
@@ -10617,15 +10610,15 @@ export namespace Prisma {
     updatedAt?: Date | string
     lastLogin?: Date | string | null
     isActive?: boolean
-    LoanApplication?: LoanApplicationUncheckedCreateNestedManyWithoutUserInput
+    loanApplications?: LoanApplicationUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutAuditLogInput = {
+  export type UserCreateOrConnectWithoutAuditLogsInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutAuditLogInput, UserUncheckedCreateWithoutAuditLogInput>
+    create: XOR<UserCreateWithoutAuditLogsInput, UserUncheckedCreateWithoutAuditLogsInput>
   }
 
-  export type LoanApplicationCreateWithoutAuditLogInput = {
+  export type LoanApplicationCreateWithoutAuditLogsInput = {
     id?: string
     loanType: $Enums.LoanType
     loanAmount: number
@@ -10669,10 +10662,10 @@ export namespace Prisma {
     idDocument?: DocumentCreateNestedOneWithoutIdDocumentApplicationInput
     payslip?: DocumentCreateNestedOneWithoutPayslipApplicationInput
     bankStatement?: DocumentCreateNestedOneWithoutBankStatementApplicationInput
-    user?: UserCreateNestedOneWithoutLoanApplicationInput
+    user?: UserCreateNestedOneWithoutLoanApplicationsInput
   }
 
-  export type LoanApplicationUncheckedCreateWithoutAuditLogInput = {
+  export type LoanApplicationUncheckedCreateWithoutAuditLogsInput = {
     id?: string
     loanType: $Enums.LoanType
     loanAmount: number
@@ -10708,34 +10701,34 @@ export namespace Prisma {
     status?: $Enums.ApplicationStatus
     notes?: string | null
     rejectionReason?: string | null
+    idDocumentId?: string | null
+    payslipId?: string | null
+    bankStatementId?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     reviewedAt?: Date | string | null
     approvedAt?: Date | string | null
     fundedAt?: Date | string | null
-    idDocument?: DocumentUncheckedCreateNestedOneWithoutIdDocumentApplicationInput
-    payslip?: DocumentUncheckedCreateNestedOneWithoutPayslipApplicationInput
-    bankStatement?: DocumentUncheckedCreateNestedOneWithoutBankStatementApplicationInput
   }
 
-  export type LoanApplicationCreateOrConnectWithoutAuditLogInput = {
+  export type LoanApplicationCreateOrConnectWithoutAuditLogsInput = {
     where: LoanApplicationWhereUniqueInput
-    create: XOR<LoanApplicationCreateWithoutAuditLogInput, LoanApplicationUncheckedCreateWithoutAuditLogInput>
+    create: XOR<LoanApplicationCreateWithoutAuditLogsInput, LoanApplicationUncheckedCreateWithoutAuditLogsInput>
   }
 
-  export type UserUpsertWithoutAuditLogInput = {
-    update: XOR<UserUpdateWithoutAuditLogInput, UserUncheckedUpdateWithoutAuditLogInput>
-    create: XOR<UserCreateWithoutAuditLogInput, UserUncheckedCreateWithoutAuditLogInput>
+  export type UserUpsertWithoutAuditLogsInput = {
+    update: XOR<UserUpdateWithoutAuditLogsInput, UserUncheckedUpdateWithoutAuditLogsInput>
+    create: XOR<UserCreateWithoutAuditLogsInput, UserUncheckedCreateWithoutAuditLogsInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutAuditLogInput = {
+  export type UserUpdateToOneWithWhereWithoutAuditLogsInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutAuditLogInput, UserUncheckedUpdateWithoutAuditLogInput>
+    data: XOR<UserUpdateWithoutAuditLogsInput, UserUncheckedUpdateWithoutAuditLogsInput>
   }
 
-  export type UserUpdateWithoutAuditLogInput = {
+  export type UserUpdateWithoutAuditLogsInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10746,10 +10739,10 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
-    LoanApplication?: LoanApplicationUpdateManyWithoutUserNestedInput
+    loanApplications?: LoanApplicationUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutAuditLogInput = {
+  export type UserUncheckedUpdateWithoutAuditLogsInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10760,21 +10753,21 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
-    LoanApplication?: LoanApplicationUncheckedUpdateManyWithoutUserNestedInput
+    loanApplications?: LoanApplicationUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type LoanApplicationUpsertWithoutAuditLogInput = {
-    update: XOR<LoanApplicationUpdateWithoutAuditLogInput, LoanApplicationUncheckedUpdateWithoutAuditLogInput>
-    create: XOR<LoanApplicationCreateWithoutAuditLogInput, LoanApplicationUncheckedCreateWithoutAuditLogInput>
+  export type LoanApplicationUpsertWithoutAuditLogsInput = {
+    update: XOR<LoanApplicationUpdateWithoutAuditLogsInput, LoanApplicationUncheckedUpdateWithoutAuditLogsInput>
+    create: XOR<LoanApplicationCreateWithoutAuditLogsInput, LoanApplicationUncheckedCreateWithoutAuditLogsInput>
     where?: LoanApplicationWhereInput
   }
 
-  export type LoanApplicationUpdateToOneWithWhereWithoutAuditLogInput = {
+  export type LoanApplicationUpdateToOneWithWhereWithoutAuditLogsInput = {
     where?: LoanApplicationWhereInput
-    data: XOR<LoanApplicationUpdateWithoutAuditLogInput, LoanApplicationUncheckedUpdateWithoutAuditLogInput>
+    data: XOR<LoanApplicationUpdateWithoutAuditLogsInput, LoanApplicationUncheckedUpdateWithoutAuditLogsInput>
   }
 
-  export type LoanApplicationUpdateWithoutAuditLogInput = {
+  export type LoanApplicationUpdateWithoutAuditLogsInput = {
     id?: StringFieldUpdateOperationsInput | string
     loanType?: EnumLoanTypeFieldUpdateOperationsInput | $Enums.LoanType
     loanAmount?: FloatFieldUpdateOperationsInput | number
@@ -10818,10 +10811,10 @@ export namespace Prisma {
     idDocument?: DocumentUpdateOneWithoutIdDocumentApplicationNestedInput
     payslip?: DocumentUpdateOneWithoutPayslipApplicationNestedInput
     bankStatement?: DocumentUpdateOneWithoutBankStatementApplicationNestedInput
-    user?: UserUpdateOneWithoutLoanApplicationNestedInput
+    user?: UserUpdateOneWithoutLoanApplicationsNestedInput
   }
 
-  export type LoanApplicationUncheckedUpdateWithoutAuditLogInput = {
+  export type LoanApplicationUncheckedUpdateWithoutAuditLogsInput = {
     id?: StringFieldUpdateOperationsInput | string
     loanType?: EnumLoanTypeFieldUpdateOperationsInput | $Enums.LoanType
     loanAmount?: FloatFieldUpdateOperationsInput | number
@@ -10857,15 +10850,15 @@ export namespace Prisma {
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    idDocumentId?: NullableStringFieldUpdateOperationsInput | string | null
+    payslipId?: NullableStringFieldUpdateOperationsInput | string | null
+    bankStatementId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reviewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    idDocument?: DocumentUncheckedUpdateOneWithoutIdDocumentApplicationNestedInput
-    payslip?: DocumentUncheckedUpdateOneWithoutPayslipApplicationNestedInput
-    bankStatement?: DocumentUncheckedUpdateOneWithoutBankStatementApplicationNestedInput
   }
 
   export type LoanApplicationCreateManyUserInput = {
@@ -10904,6 +10897,9 @@ export namespace Prisma {
     status?: $Enums.ApplicationStatus
     notes?: string | null
     rejectionReason?: string | null
+    idDocumentId?: string | null
+    payslipId?: string | null
+    bankStatementId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     reviewedAt?: Date | string | null
@@ -10965,7 +10961,7 @@ export namespace Prisma {
     idDocument?: DocumentUpdateOneWithoutIdDocumentApplicationNestedInput
     payslip?: DocumentUpdateOneWithoutPayslipApplicationNestedInput
     bankStatement?: DocumentUpdateOneWithoutBankStatementApplicationNestedInput
-    AuditLog?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationUncheckedUpdateWithoutUserInput = {
@@ -11004,15 +11000,15 @@ export namespace Prisma {
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    idDocumentId?: NullableStringFieldUpdateOperationsInput | string | null
+    payslipId?: NullableStringFieldUpdateOperationsInput | string | null
+    bankStatementId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reviewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     fundedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    idDocument?: DocumentUncheckedUpdateOneWithoutIdDocumentApplicationNestedInput
-    payslip?: DocumentUncheckedUpdateOneWithoutPayslipApplicationNestedInput
-    bankStatement?: DocumentUncheckedUpdateOneWithoutBankStatementApplicationNestedInput
-    AuditLog?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutLoanApplicationNestedInput
   }
 
   export type LoanApplicationUncheckedUpdateManyWithoutUserInput = {
@@ -11051,6 +11047,9 @@ export namespace Prisma {
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    idDocumentId?: NullableStringFieldUpdateOperationsInput | string | null
+    payslipId?: NullableStringFieldUpdateOperationsInput | string | null
+    bankStatementId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reviewedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11065,7 +11064,7 @@ export namespace Prisma {
     entityId?: StringFieldUpdateOperationsInput | string
     details?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    loanApplication?: LoanApplicationUpdateOneWithoutAuditLogNestedInput
+    loanApplication?: LoanApplicationUpdateOneWithoutAuditLogsNestedInput
   }
 
   export type AuditLogUncheckedUpdateWithoutUserInput = {
@@ -11105,7 +11104,7 @@ export namespace Prisma {
     entityId?: StringFieldUpdateOperationsInput | string
     details?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutAuditLogNestedInput
+    user?: UserUpdateOneRequiredWithoutAuditLogsNestedInput
   }
 
   export type AuditLogUncheckedUpdateWithoutLoanApplicationInput = {

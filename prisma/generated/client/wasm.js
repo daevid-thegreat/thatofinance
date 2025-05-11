@@ -169,6 +169,9 @@ exports.Prisma.LoanApplicationScalarFieldEnum = {
   status: 'status',
   notes: 'notes',
   rejectionReason: 'rejectionReason',
+  idDocumentId: 'idDocumentId',
+  payslipId: 'payslipId',
+  bankStatementId: 'bankStatementId',
   userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -184,9 +187,6 @@ exports.Prisma.DocumentScalarFieldEnum = {
   fileType: 'fileType',
   fileSize: 'fileSize',
   blobPath: 'blobPath',
-  idDocumentApplicationId: 'idDocumentApplicationId',
-  payslipApplicationId: 'payslipApplicationId',
-  bankStatementApplicationId: 'bankStatementApplicationId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

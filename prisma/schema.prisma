@@ -71,8 +71,8 @@ model User {
   lastLogin     DateTime?
   isActive      Boolean     @default(true)
 
-  LoanApplication LoanApplication[]
-  AuditLog       AuditLog[]
+  loanApplications LoanApplication[]
+  auditLogs       AuditLog[]
 }
 
 enum Role {
@@ -119,10 +119,15 @@ model LoanApplication {
   notes               String?
   rejectionReason     String?
 
-  // File references
-  idDocument         Document?  @relation("IdDocument")
-  payslip            Document?  @relation("Payslip")
-  bankStatement      Document?  @relation("BankStatement")
+  // Document relations
+  idDocument         Document?  @relation("IdDocument", fields: [idDocumentId], references: [id])
+  idDocumentId       String?    @unique
+
+  payslip            Document?  @relation("Payslip", fields: [payslipId], references: [id])
+  payslipId          String?    @unique
+
+  bankStatement      Document?  @relation("BankStatement", fields: [bankStatementId], references: [id])
+  bankStatementId    String?    @unique
 
   userId            String?
   user              User?      @relation(fields: [userId], references: [id])
@@ -133,7 +138,7 @@ model LoanApplication {
   approvedAt        DateTime?
   fundedAt          DateTime?
 
-  AuditLog          AuditLog[]
+  auditLogs         AuditLog[]
 }
 
 model Document {
@@ -144,15 +149,10 @@ model Document {
   fileSize        Int
   blobPath        String      @unique
 
-  // Relations to LoanApplication - now with unique constraints
-  idDocumentApplication LoanApplication? @relation("IdDocument", fields: [idDocumentApplicationId], references: [id])
-  idDocumentApplicationId String? @unique
-
-  payslipApplication LoanApplication? @relation("Payslip", fields: [payslipApplicationId], references: [id])
-  payslipApplicationId String? @unique
-
-  bankStatementApplication LoanApplication? @relation("BankStatement", fields: [bankStatementApplicationId], references: [id])
-  bankStatementApplicationId String? @unique
+  // Relations back to LoanApplication
+  idDocumentApplication LoanApplication? @relation("IdDocument")
+  payslipApplication    LoanApplication? @relation("Payslip")
+  bankStatementApplication LoanApplication? @relation("BankStatement")
 
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
