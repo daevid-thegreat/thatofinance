@@ -16,12 +16,7 @@ export const { handlers: { GET, POST }, auth } = NextAuth({
                 if (!credentials?.password) return null;
 
                 const user = await prisma.user.findFirst({
-                where: {
-                    OR
-                    : [
-                        { email: credentials?.username as string },
-                    ],
-                }
+                where: {email: credentials?.username as string },
                 });
 
                 if (!user) return null;
