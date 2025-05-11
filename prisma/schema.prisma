@@ -1,0 +1,175 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LoanType {
+  EMERGENCY
+  BUSINESS
+  THATOFIX
+  SECOND_SALARY
+  LOAN_READVANCE
+}
+
+enum EmploymentType {
+  CONTRACT
+  FULL_TIME
+  PART_TIME
+  OTHER
+}
+
+enum MaritalStatus {
+  SINGLE
+  MARRIED
+  DIVORCED
+  WIDOWED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum Race {
+  WHITE_CAUCASIAN
+  BLACK_AFRICAN_AMERICAN
+  HISPANIC_LATINO
+  ASIAN
+  OTHER
+}
+
+enum MaritalProperty {
+  COP
+  ANC
+  OTHER
+}
+
+enum ApplicationStatus {
+  PENDING
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+  FUNDED
+  COMPLETED
+}
+
+model User {
+  id            String      @id @default(cuid())
+  email         String      @unique
+  password      String
+  firstName     String
+  lastName      String
+  role          Role        @default(USER)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  lastLogin     DateTime?
+  isActive      Boolean     @default(true)
+
+  LoanApplication LoanApplication[]
+  AuditLog       AuditLog[]
+}
+
+enum Role {
+  USER
+  ADMIN
+  LOAN_OFFICER
+  REVIEWER
+}
+
+model LoanApplication {
+  id                  String      @id @default(cuid())
+  loanType            LoanType
+  loanAmount          Float
+  loanTerm            Int
+  firstName           String
+  lastName            String
+  address             String
+  idNumber            String
+  maritalStatus       MaritalStatus
+  maritalProperty     MaritalProperty?
+  gender              Gender
+  cell                String
+  whatsapp            String?
+  email               String
+  race                Race
+  employer            String
+  employmentType      EmploymentType
+  lengthOfEmployment  Int
+  employeeNumber      String
+  dependants          Int
+  salary              Float
+  employerTelephone   String
+  employerEmail       String
+  netIncome           Float
+  basicIncome         Float
+  livingExpenses      Float
+  monthlyLoanRepayments Float
+  totalExpenses       Float
+  bankName            String
+  accountNumber       String
+  accountHolder       String
+  branchCode          String
+  status              ApplicationStatus @default(PENDING)
+  notes               String?
+  rejectionReason     String?
+
+  // File references
+  idDocument         Document?  @relation("IdDocument")
+  payslip            Document?  @relation("Payslip")
+  bankStatement      Document?  @relation("BankStatement")
+
+  userId            String?
+  user              User?      @relation(fields: [userId], references: [id])
+
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  reviewedAt        DateTime?
+  approvedAt        DateTime?
+  fundedAt          DateTime?
+
+  AuditLog          AuditLog[]
+}
+
+model Document {
+  id              String      @id @default(cuid())
+  url             String      @unique
+  fileName        String
+  fileType        String
+  fileSize        Int
+  blobPath        String      @unique
+
+  // Relations to LoanApplication - now with unique constraints
+  idDocumentApplication LoanApplication? @relation("IdDocument", fields: [idDocumentApplicationId], references: [id])
+  idDocumentApplicationId String? @unique
+
+  payslipApplication LoanApplication? @relation("Payslip", fields: [payslipApplicationId], references: [id])
+  payslipApplicationId String? @unique
+
+  bankStatementApplication LoanApplication? @relation("BankStatement", fields: [bankStatementApplicationId], references: [id])
+  bankStatementApplicationId String? @unique
+
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model AuditLog {
+  id              String      @id @default(cuid())
+  action          String
+  entityType      String
+  entityId        String
+  details         Json?
+
+  userId          String
+  user            User        @relation(fields: [userId], references: [id])
+
+  loanApplicationId String?
+  loanApplication  LoanApplication? @relation(fields: [loanApplicationId], references: [id])
+
+  createdAt       DateTime    @default(now())
+}
