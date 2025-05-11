@@ -2,10 +2,8 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: Request, { params }: { params: { id: string } }) {
+  const { id } = params;
   const session = await auth();
 
   // Verify admin access
@@ -15,7 +13,7 @@ export async function GET(
 
   try {
     const application = await prisma.loanApplication.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         idDocument: true,
         payslip: true,
