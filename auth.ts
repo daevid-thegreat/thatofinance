@@ -7,7 +7,8 @@ export const { handlers: { GET, POST }, auth } = NextAuth({
     trustHost: true,
     providers: [
         CredentialsProvider({
-        credentials: {
+            type: "credentials",
+            credentials: {
             username: { label: "Username", type: "text", placeholder: "jsmith" },
             password: { label: "Password", type: "password" }
           },
@@ -29,15 +30,15 @@ export const { handlers: { GET, POST }, auth } = NextAuth({
 
                 return null;
             }
-        },
-      })
+        }
+        })
     ],
     callbacks: {
       async jwt ({ token, user }) {
         if (user) {
           token.sub = user.id;
-          token.first_name = user.first_name;
-          token.last_name = user.last_name;
+          token.firstName = user.firstName;
+          token.lastName = user.lastName;
           token.email = user.email;
           token.role = user.role
         }
@@ -49,8 +50,8 @@ export const { handlers: { GET, POST }, auth } = NextAuth({
           ...session,
           user: {
             id: token.sub as string,
-            first_name: token.first_name as string,
-            last_name: token.last_name as string,
+            firstName: token.firstName as string,
+            lastName: token.lastName as string,
             email: token.email as string,
             role: token.role as string,
           },
