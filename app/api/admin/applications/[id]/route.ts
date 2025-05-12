@@ -1,14 +1,22 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function GET(
+  request: NextRequest,
+  { params } : { params: Promise<{ id: string }> }
+) {
   const session = await auth();
 
   // Verify admin access
   if (!session || session.user.role !== "ADMIN") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const { id } = await params;
+
+  if (!id) {
+    return NextResponse.json({ error: "Application ID is required" }, { status: 400 });
   }
 
   try {
@@ -36,14 +44,20 @@ export async function GET(request: Request, { params }: { params: { id: string }
 }
 
 export async function PATCH(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+ { params } : { params: Promise<{ id: string }> }
 ) {
   const session = await auth();
 
   // Verify admin access
   if (!session || session.user.role !== "ADMIN") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const { id } = await params;
+
+  if (!id) {
+    return NextResponse.json({ error: "Application ID is required" }, { status: 400 });
   }
 
   try {
@@ -57,7 +71,7 @@ export async function PATCH(
     }
 
     const updatedApplication = await prisma.loanApplication.update({
-      where: { id: params.id },
+      where: { id },
       data: { status },
     });
 
