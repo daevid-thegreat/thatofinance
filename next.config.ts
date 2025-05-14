@@ -1,27 +1,14 @@
-import { NextConfig } from "next";
-import path from "path";
+import PrismaWebpackPlugin from "prisma-webpack-plugin";
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  webpack(config) {
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...config.resolve?.alias,
-        "@components": path.join(__dirname, "src/components"),
-      },
-    };
-
-    // Ensure Prisma binaries are included
-    config.module?.rules?.push({
-      test: /\.(prisma|so|node)$/,
-      loader: "file-loader",
-      options: {
-        name: "[name].[ext]",
-        outputPath: "prisma/",
-      },
-    });
+   output: 'standalone',
+  webpack(config, { isServer }) {
+    if (isServer) {
+      config.plugins = [...config.plugins, new PrismaWebpackPlugin()]
+    }
 
     return config;
   },

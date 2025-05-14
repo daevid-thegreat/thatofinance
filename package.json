@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",
+    "@prisma/nextjs-monorepo-workaround-plugin": "^6.7.0",
     "@vercel/blob": "^1.0.1",
+    "@vercel/webpack-asset-relocator-loader": "^1.7.4",
     "axios": "^1.9.0",
     "bcryptjs": "^3.0.2",
     "next": "15.3.2",
@@ -27,11 +29,14 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-env": "^1.18.8",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "prisma": "^6.7.0",
     "tailwindcss": "^4",
     "tsx": "^4.19.4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "webpack": "^5.99.8"
   }
 }
