@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="flex sm:-mx-8 justify-evenly gap-2 space-x-8 sm:space-x-2 py-2">
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/contact/Page">Contact</Link>
         </div>
         <div className="ml-2 px-5 text-xs py-4 bg-orange-600 rounded-[18px] sm:mx-10 sm:px-10 sm:text-left sm:rounded-[15px]">
           <Link href="/apply"> Get Started</Link>
