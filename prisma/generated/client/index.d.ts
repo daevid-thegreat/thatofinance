@@ -376,7 +376,7 @@ export namespace Prisma {
 
   /**
    * Prisma Client JS version: 6.8.0-dev.46
-   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
+   * Query Engine version: 605197351a3c8bdd595af2d2a9bc3025bca48ea2
    */
   export type PrismaVersion = {
     client: string
@@ -835,10 +835,6 @@ export namespace Prisma {
             args: Prisma.UserUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          updateManyAndReturn: {
-            args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
-          }
           upsert: {
             args: Prisma.UserUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$UserPayload>
@@ -908,10 +904,6 @@ export namespace Prisma {
           updateMany: {
             args: Prisma.LoanApplicationUpdateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.LoanApplicationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LoanApplicationPayload>[]
           }
           upsert: {
             args: Prisma.LoanApplicationUpsertArgs<ExtArgs>
@@ -983,10 +975,6 @@ export namespace Prisma {
             args: Prisma.DocumentUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          updateManyAndReturn: {
-            args: Prisma.DocumentUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
-          }
           upsert: {
             args: Prisma.DocumentUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
@@ -1056,10 +1044,6 @@ export namespace Prisma {
           updateMany: {
             args: Prisma.AuditLogUpdateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.AuditLogUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AuditLogPayload>[]
           }
           upsert: {
             args: Prisma.AuditLogUpsertArgs<ExtArgs>
@@ -1553,18 +1537,6 @@ export namespace Prisma {
     isActive?: boolean
   }, ExtArgs["result"]["user"]>
 
-  export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    email?: boolean
-    password?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    role?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    lastLogin?: boolean
-    isActive?: boolean
-  }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
@@ -1586,7 +1558,6 @@ export namespace Prisma {
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1809,36 +1780,6 @@ export namespace Prisma {
      * 
      */
     updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Users and returns the data updated in the database.
-     * @param {UserUpdateManyAndReturnArgs} args - Arguments to update many Users.
-     * @example
-     * // Update many Users
-     * const user = await prisma.user.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends UserUpdateManyAndReturnArgs>(args: SelectSubset<T, UserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one User.
@@ -2329,36 +2270,6 @@ export namespace Prisma {
      * Filter which Users to update
      */
     where?: UserWhereInput
-    /**
-     * Limit how many Users to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * User updateManyAndReturn
-   */
-  export type UserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the User
-     */
-    omit?: UserOmit<ExtArgs> | null
-    /**
-     * The data used to update Users.
-     */
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
-    /**
-     * Filter which Users to update
-     */
-    where?: UserWhereInput
-    /**
-     * Limit how many Users to update.
-     */
-    limit?: number
   }
 
   /**
@@ -2421,10 +2332,6 @@ export namespace Prisma {
      * Filter which Users to delete
      */
     where?: UserWhereInput
-    /**
-     * Limit how many Users to delete.
-     */
-    limit?: number
   }
 
   /**
@@ -3099,56 +3006,6 @@ export namespace Prisma {
     user?: boolean | LoanApplication$userArgs<ExtArgs>
   }, ExtArgs["result"]["loanApplication"]>
 
-  export type LoanApplicationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    loanType?: boolean
-    loanAmount?: boolean
-    loanTerm?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    address?: boolean
-    idNumber?: boolean
-    maritalStatus?: boolean
-    maritalProperty?: boolean
-    gender?: boolean
-    cell?: boolean
-    whatsapp?: boolean
-    email?: boolean
-    race?: boolean
-    employer?: boolean
-    employmentType?: boolean
-    lengthOfEmployment?: boolean
-    employeeNumber?: boolean
-    dependants?: boolean
-    salary?: boolean
-    employerTelephone?: boolean
-    employerEmail?: boolean
-    netIncome?: boolean
-    basicIncome?: boolean
-    livingExpenses?: boolean
-    monthlyLoanRepayments?: boolean
-    totalExpenses?: boolean
-    bankName?: boolean
-    accountNumber?: boolean
-    accountHolder?: boolean
-    branchCode?: boolean
-    status?: boolean
-    notes?: boolean
-    rejectionReason?: boolean
-    idDocumentId?: boolean
-    payslipId?: boolean
-    bankStatementId?: boolean
-    userId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    reviewedAt?: boolean
-    approvedAt?: boolean
-    fundedAt?: boolean
-    idDocument?: boolean | LoanApplication$idDocumentArgs<ExtArgs>
-    payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
-    bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
-    user?: boolean | LoanApplication$userArgs<ExtArgs>
-  }, ExtArgs["result"]["loanApplication"]>
 
   export type LoanApplicationSelectScalar = {
     id?: boolean
@@ -3207,12 +3064,6 @@ export namespace Prisma {
     _count?: boolean | LoanApplicationCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LoanApplicationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    idDocument?: boolean | LoanApplication$idDocumentArgs<ExtArgs>
-    payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
-    bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
-    user?: boolean | LoanApplication$userArgs<ExtArgs>
-  }
-  export type LoanApplicationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     idDocument?: boolean | LoanApplication$idDocumentArgs<ExtArgs>
     payslip?: boolean | LoanApplication$payslipArgs<ExtArgs>
     bankStatement?: boolean | LoanApplication$bankStatementArgs<ExtArgs>
@@ -3477,36 +3328,6 @@ export namespace Prisma {
      * 
      */
     updateMany<T extends LoanApplicationUpdateManyArgs>(args: SelectSubset<T, LoanApplicationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more LoanApplications and returns the data updated in the database.
-     * @param {LoanApplicationUpdateManyAndReturnArgs} args - Arguments to update many LoanApplications.
-     * @example
-     * // Update many LoanApplications
-     * const loanApplication = await prisma.loanApplication.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more LoanApplications and only return the `id`
-     * const loanApplicationWithIdOnly = await prisma.loanApplication.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends LoanApplicationUpdateManyAndReturnArgs>(args: SelectSubset<T, LoanApplicationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoanApplicationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one LoanApplication.
@@ -4038,40 +3859,6 @@ export namespace Prisma {
      * Filter which LoanApplications to update
      */
     where?: LoanApplicationWhereInput
-    /**
-     * Limit how many LoanApplications to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * LoanApplication updateManyAndReturn
-   */
-  export type LoanApplicationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the LoanApplication
-     */
-    select?: LoanApplicationSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the LoanApplication
-     */
-    omit?: LoanApplicationOmit<ExtArgs> | null
-    /**
-     * The data used to update LoanApplications.
-     */
-    data: XOR<LoanApplicationUpdateManyMutationInput, LoanApplicationUncheckedUpdateManyInput>
-    /**
-     * Filter which LoanApplications to update
-     */
-    where?: LoanApplicationWhereInput
-    /**
-     * Limit how many LoanApplications to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LoanApplicationIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -4134,10 +3921,6 @@ export namespace Prisma {
      * Filter which LoanApplications to delete
      */
     where?: LoanApplicationWhereInput
-    /**
-     * Limit how many LoanApplications to delete.
-     */
-    limit?: number
   }
 
   /**
@@ -4497,16 +4280,6 @@ export namespace Prisma {
     updatedAt?: boolean
   }, ExtArgs["result"]["document"]>
 
-  export type DocumentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    url?: boolean
-    fileName?: boolean
-    fileType?: boolean
-    fileSize?: boolean
-    blobPath?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectScalar = {
     id?: boolean
@@ -4526,7 +4299,6 @@ export namespace Prisma {
     bankStatementApplication?: boolean | Document$bankStatementApplicationArgs<ExtArgs>
   }
   export type DocumentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type DocumentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $DocumentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Document"
@@ -4748,36 +4520,6 @@ export namespace Prisma {
      * 
      */
     updateMany<T extends DocumentUpdateManyArgs>(args: SelectSubset<T, DocumentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Documents and returns the data updated in the database.
-     * @param {DocumentUpdateManyAndReturnArgs} args - Arguments to update many Documents.
-     * @example
-     * // Update many Documents
-     * const document = await prisma.document.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Documents and only return the `id`
-     * const documentWithIdOnly = await prisma.document.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends DocumentUpdateManyAndReturnArgs>(args: SelectSubset<T, DocumentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one Document.
@@ -5267,36 +5009,6 @@ export namespace Prisma {
      * Filter which Documents to update
      */
     where?: DocumentWhereInput
-    /**
-     * Limit how many Documents to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Document updateManyAndReturn
-   */
-  export type DocumentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Document
-     */
-    select?: DocumentSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Document
-     */
-    omit?: DocumentOmit<ExtArgs> | null
-    /**
-     * The data used to update Documents.
-     */
-    data: XOR<DocumentUpdateManyMutationInput, DocumentUncheckedUpdateManyInput>
-    /**
-     * Filter which Documents to update
-     */
-    where?: DocumentWhereInput
-    /**
-     * Limit how many Documents to update.
-     */
-    limit?: number
   }
 
   /**
@@ -5359,10 +5071,6 @@ export namespace Prisma {
      * Filter which Documents to delete
      */
     where?: DocumentWhereInput
-    /**
-     * Limit how many Documents to delete.
-     */
-    limit?: number
   }
 
   /**
@@ -5642,18 +5350,6 @@ export namespace Prisma {
     loanApplication?: boolean | AuditLog$loanApplicationArgs<ExtArgs>
   }, ExtArgs["result"]["auditLog"]>
 
-  export type AuditLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    action?: boolean
-    entityType?: boolean
-    entityId?: boolean
-    details?: boolean
-    userId?: boolean
-    loanApplicationId?: boolean
-    createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    loanApplication?: boolean | AuditLog$loanApplicationArgs<ExtArgs>
-  }, ExtArgs["result"]["auditLog"]>
 
   export type AuditLogSelectScalar = {
     id?: boolean
@@ -5672,10 +5368,6 @@ export namespace Prisma {
     loanApplication?: boolean | AuditLog$loanApplicationArgs<ExtArgs>
   }
   export type AuditLogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    loanApplication?: boolean | AuditLog$loanApplicationArgs<ExtArgs>
-  }
-  export type AuditLogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     loanApplication?: boolean | AuditLog$loanApplicationArgs<ExtArgs>
   }
@@ -5899,36 +5591,6 @@ export namespace Prisma {
      * 
      */
     updateMany<T extends AuditLogUpdateManyArgs>(args: SelectSubset<T, AuditLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more AuditLogs and returns the data updated in the database.
-     * @param {AuditLogUpdateManyAndReturnArgs} args - Arguments to update many AuditLogs.
-     * @example
-     * // Update many AuditLogs
-     * const auditLog = await prisma.auditLog.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more AuditLogs and only return the `id`
-     * const auditLogWithIdOnly = await prisma.auditLog.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends AuditLogUpdateManyAndReturnArgs>(args: SelectSubset<T, AuditLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one AuditLog.
@@ -6421,40 +6083,6 @@ export namespace Prisma {
      * Filter which AuditLogs to update
      */
     where?: AuditLogWhereInput
-    /**
-     * Limit how many AuditLogs to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * AuditLog updateManyAndReturn
-   */
-  export type AuditLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AuditLog
-     */
-    select?: AuditLogSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the AuditLog
-     */
-    omit?: AuditLogOmit<ExtArgs> | null
-    /**
-     * The data used to update AuditLogs.
-     */
-    data: XOR<AuditLogUpdateManyMutationInput, AuditLogUncheckedUpdateManyInput>
-    /**
-     * Filter which AuditLogs to update
-     */
-    where?: AuditLogWhereInput
-    /**
-     * Limit how many AuditLogs to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AuditLogIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -6517,10 +6145,6 @@ export namespace Prisma {
      * Filter which AuditLogs to delete
      */
     where?: AuditLogWhereInput
-    /**
-     * Limit how many AuditLogs to delete.
-     */
-    limit?: number
   }
 
   /**
@@ -6895,13 +6519,6 @@ export namespace Prisma {
    */
   export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
     
-
-
-  /**
-   * Reference to a field of type 'QueryMode'
-   */
-  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
   /**
    * Deep Input Types
    */
@@ -7038,10 +6655,10 @@ export namespace Prisma {
     reviewedAt?: DateTimeNullableFilter<"LoanApplication"> | Date | string | null
     approvedAt?: DateTimeNullableFilter<"LoanApplication"> | Date | string | null
     fundedAt?: DateTimeNullableFilter<"LoanApplication"> | Date | string | null
-    idDocument?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
-    payslip?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
-    bankStatement?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    idDocument?: XOR<DocumentNullableRelationFilter, DocumentWhereInput> | null
+    payslip?: XOR<DocumentNullableRelationFilter, DocumentWhereInput> | null
+    bankStatement?: XOR<DocumentNullableRelationFilter, DocumentWhereInput> | null
+    user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     auditLogs?: AuditLogListRelationFilter
   }
 
@@ -7145,10 +6762,10 @@ export namespace Prisma {
     reviewedAt?: DateTimeNullableFilter<"LoanApplication"> | Date | string | null
     approvedAt?: DateTimeNullableFilter<"LoanApplication"> | Date | string | null
     fundedAt?: DateTimeNullableFilter<"LoanApplication"> | Date | string | null
-    idDocument?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
-    payslip?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
-    bankStatement?: XOR<DocumentNullableScalarRelationFilter, DocumentWhereInput> | null
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    idDocument?: XOR<DocumentNullableRelationFilter, DocumentWhereInput> | null
+    payslip?: XOR<DocumentNullableRelationFilter, DocumentWhereInput> | null
+    bankStatement?: XOR<DocumentNullableRelationFilter, DocumentWhereInput> | null
+    user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     auditLogs?: AuditLogListRelationFilter
   }, "id" | "idDocumentId" | "payslipId" | "bankStatementId">
 
@@ -7266,9 +6883,9 @@ export namespace Prisma {
     blobPath?: StringFilter<"Document"> | string
     createdAt?: DateTimeFilter<"Document"> | Date | string
     updatedAt?: DateTimeFilter<"Document"> | Date | string
-    idDocumentApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
-    payslipApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
-    bankStatementApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
+    idDocumentApplication?: XOR<LoanApplicationNullableRelationFilter, LoanApplicationWhereInput> | null
+    payslipApplication?: XOR<LoanApplicationNullableRelationFilter, LoanApplicationWhereInput> | null
+    bankStatementApplication?: XOR<LoanApplicationNullableRelationFilter, LoanApplicationWhereInput> | null
   }
 
   export type DocumentOrderByWithRelationInput = {
@@ -7297,9 +6914,9 @@ export namespace Prisma {
     fileSize?: IntFilter<"Document"> | number
     createdAt?: DateTimeFilter<"Document"> | Date | string
     updatedAt?: DateTimeFilter<"Document"> | Date | string
-    idDocumentApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
-    payslipApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
-    bankStatementApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
+    idDocumentApplication?: XOR<LoanApplicationNullableRelationFilter, LoanApplicationWhereInput> | null
+    payslipApplication?: XOR<LoanApplicationNullableRelationFilter, LoanApplicationWhereInput> | null
+    bankStatementApplication?: XOR<LoanApplicationNullableRelationFilter, LoanApplicationWhereInput> | null
   }, "id" | "url" | "blobPath">
 
   export type DocumentOrderByWithAggregationInput = {
@@ -7344,8 +6961,8 @@ export namespace Prisma {
     userId?: StringFilter<"AuditLog"> | string
     loanApplicationId?: StringNullableFilter<"AuditLog"> | string | null
     createdAt?: DateTimeFilter<"AuditLog"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    loanApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    loanApplication?: XOR<LoanApplicationNullableRelationFilter, LoanApplicationWhereInput> | null
   }
 
   export type AuditLogOrderByWithRelationInput = {
@@ -7373,8 +6990,8 @@ export namespace Prisma {
     userId?: StringFilter<"AuditLog"> | string
     loanApplicationId?: StringNullableFilter<"AuditLog"> | string | null
     createdAt?: DateTimeFilter<"AuditLog"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    loanApplication?: XOR<LoanApplicationNullableScalarRelationFilter, LoanApplicationWhereInput> | null
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    loanApplication?: XOR<LoanApplicationNullableRelationFilter, LoanApplicationWhereInput> | null
   }, "id">
 
   export type AuditLogOrderByWithAggregationInput = {
@@ -8260,12 +7877,12 @@ export namespace Prisma {
     not?: NestedEnumApplicationStatusFilter<$PrismaModel> | $Enums.ApplicationStatus
   }
 
-  export type DocumentNullableScalarRelationFilter = {
+  export type DocumentNullableRelationFilter = {
     is?: DocumentWhereInput | null
     isNot?: DocumentWhereInput | null
   }
 
-  export type UserNullableScalarRelationFilter = {
+  export type UserNullableRelationFilter = {
     is?: UserWhereInput | null
     isNot?: UserWhereInput | null
   }
@@ -8557,7 +8174,7 @@ export namespace Prisma {
     _max?: NestedEnumApplicationStatusFilter<$PrismaModel>
   }
 
-  export type LoanApplicationNullableScalarRelationFilter = {
+  export type LoanApplicationNullableRelationFilter = {
     is?: LoanApplicationWhereInput | null
     isNot?: LoanApplicationWhereInput | null
   }
@@ -8612,13 +8229,12 @@ export namespace Prisma {
   export type JsonNullableFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
     path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
     string_contains?: string | StringFieldRefInput<$PrismaModel>
     string_starts_with?: string | StringFieldRefInput<$PrismaModel>
     string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
@@ -8626,7 +8242,7 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type UserScalarRelationFilter = {
+  export type UserRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
   }
@@ -8671,13 +8287,12 @@ export namespace Prisma {
   export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
     path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
     string_contains?: string | StringFieldRefInput<$PrismaModel>
     string_starts_with?: string | StringFieldRefInput<$PrismaModel>
     string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
@@ -9407,13 +9022,12 @@ export namespace Prisma {
   export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
     path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
     string_contains?: string | StringFieldRefInput<$PrismaModel>
     string_starts_with?: string | StringFieldRefInput<$PrismaModel>
     string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
     lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
