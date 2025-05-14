@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import {auth} from "@/auth";
-import {$Enums} from "@/prisma/generated/client";
-import ApplicationStatus = $Enums.ApplicationStatus;
+
+
+type ApplicationStatus = 'PENDING' | 'UNDER_REVIEW' | 'APPROVED' | 'REJECTED' | 'FUNDED' | 'COMPLETED';
 
 export async function GET(request: Request) {
   const session = await auth();
