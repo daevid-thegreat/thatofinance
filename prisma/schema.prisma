@@ -1,6 +1,7 @@
 generator client {
-  provider = "prisma-client-js"
-  output   = "generated/client"
+  provider      = "prisma-client-js"
+  output        = "generated/client"
+  binaryTargets = ["native", "linux-arm64-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
 }
 
 datasource db {
@@ -60,19 +61,19 @@ enum ApplicationStatus {
 }
 
 model User {
-  id            String      @id @default(cuid())
-  email         String      @unique
-  password      String
-  firstName     String
-  lastName      String
-  role          Role        @default(USER)
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  lastLogin     DateTime?
-  isActive      Boolean     @default(true)
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String
+  firstName String
+  lastName  String
+  role      Role      @default(USER)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  lastLogin DateTime?
+  isActive  Boolean   @default(true)
 
   loanApplications LoanApplication[]
-  auditLogs       AuditLog[]
+  auditLogs        AuditLog[]
 }
 
 enum Role {
@@ -83,93 +84,93 @@ enum Role {
 }
 
 model LoanApplication {
-  id                  String      @id @default(cuid())
-  loanType            LoanType
-  loanAmount          Float
-  loanTerm            Int
-  firstName           String
-  lastName            String
-  address             String
-  idNumber            String
-  maritalStatus       MaritalStatus
-  maritalProperty     MaritalProperty?
-  gender              Gender
-  cell                String
-  whatsapp            String?
-  email               String
-  race                Race
-  employer            String
-  employmentType      EmploymentType
-  lengthOfEmployment  Int
-  employeeNumber      String
-  dependants          Int
-  salary              Float
-  employerTelephone   String
-  employerEmail       String
-  netIncome           Float
-  basicIncome         Float
-  livingExpenses      Float
+  id                    String            @id @default(cuid())
+  loanType              LoanType
+  loanAmount            Float
+  loanTerm              Int
+  firstName             String
+  lastName              String
+  address               String
+  idNumber              String
+  maritalStatus         MaritalStatus
+  maritalProperty       MaritalProperty?
+  gender                Gender
+  cell                  String
+  whatsapp              String?
+  email                 String
+  race                  Race
+  employer              String
+  employmentType        EmploymentType
+  lengthOfEmployment    Int
+  employeeNumber        String
+  dependants            Int
+  salary                Float
+  employerTelephone     String
+  employerEmail         String
+  netIncome             Float
+  basicIncome           Float
+  livingExpenses        Float
   monthlyLoanRepayments Float
-  totalExpenses       Float
-  bankName            String
-  accountNumber       String
-  accountHolder       String
-  branchCode          String
-  status              ApplicationStatus @default(PENDING)
-  notes               String?
-  rejectionReason     String?
+  totalExpenses         Float
+  bankName              String
+  accountNumber         String
+  accountHolder         String
+  branchCode            String
+  status                ApplicationStatus @default(PENDING)
+  notes                 String?
+  rejectionReason       String?
 
   // Document relations
-  idDocument         Document?  @relation("IdDocument", fields: [idDocumentId], references: [id])
-  idDocumentId       String?    @unique
+  idDocument   Document? @relation("IdDocument", fields: [idDocumentId], references: [id])
+  idDocumentId String?   @unique
 
-  payslip            Document?  @relation("Payslip", fields: [payslipId], references: [id])
-  payslipId          String?    @unique
+  payslip   Document? @relation("Payslip", fields: [payslipId], references: [id])
+  payslipId String?   @unique
 
-  bankStatement      Document?  @relation("BankStatement", fields: [bankStatementId], references: [id])
-  bankStatementId    String?    @unique
+  bankStatement   Document? @relation("BankStatement", fields: [bankStatementId], references: [id])
+  bankStatementId String?   @unique
 
-  userId            String?
-  user              User?      @relation(fields: [userId], references: [id])
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id])
 
-  createdAt         DateTime    @default(now())
-  updatedAt         DateTime    @updatedAt
-  reviewedAt        DateTime?
-  approvedAt        DateTime?
-  fundedAt          DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  reviewedAt DateTime?
+  approvedAt DateTime?
+  fundedAt   DateTime?
 
-  auditLogs         AuditLog[]
+  auditLogs AuditLog[]
 }
 
 model Document {
-  id              String      @id @default(cuid())
-  url             String      @unique
-  fileName        String
-  fileType        String
-  fileSize        Int
-  blobPath        String      @unique
+  id       String @id @default(cuid())
+  url      String @unique
+  fileName String
+  fileType String
+  fileSize Int
+  blobPath String @unique
 
   // Relations back to LoanApplication
-  idDocumentApplication LoanApplication? @relation("IdDocument")
-  payslipApplication    LoanApplication? @relation("Payslip")
+  idDocumentApplication    LoanApplication? @relation("IdDocument")
+  payslipApplication       LoanApplication? @relation("Payslip")
   bankStatementApplication LoanApplication? @relation("BankStatement")
 
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model AuditLog {
-  id              String      @id @default(cuid())
-  action          String
-  entityType      String
-  entityId        String
-  details         Json?
+  id         String @id @default(cuid())
+  action     String
+  entityType String
+  entityId   String
+  details    Json?
 
-  userId          String
-  user            User        @relation(fields: [userId], references: [id])
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 
   loanApplicationId String?
-  loanApplication  LoanApplication? @relation(fields: [loanApplicationId], references: [id])
+  loanApplication   LoanApplication? @relation(fields: [loanApplicationId], references: [id])
 
-  createdAt       DateTime    @default(now())
+  createdAt DateTime @default(now())
 }
