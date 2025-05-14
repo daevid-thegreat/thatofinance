@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
             {
               from: path.join(process.cwd(), "prisma/generated/client"),
               to: path.join(process.cwd(), ".next/server/prisma/generated/client")
+            },
+               {
+              from: path.join(process.cwd(), "prisma/generated/client"),
+              to: path.join(process.cwd(), ".next/server")
             }
           ]
         })
